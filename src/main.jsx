@@ -1,8 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { RouterProvider } from "react-router-dom";
+import { router } from "./routes";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    Hello world from SKISC HSC-2025&apos;s client!
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
