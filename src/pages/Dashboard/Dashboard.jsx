@@ -1,4 +1,6 @@
+import { Navigate } from "react-router-dom";
+
 const Dashboard = () => {
-  return <div>Dashboard</div>;
+  return <Navigate to="/dashboard/profile" />;
 };
 export default Dashboard;

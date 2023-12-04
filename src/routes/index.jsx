@@ -20,19 +20,58 @@ import AdminHomeworks from "../pages/Admin/AdminHomeworks/AdminHomeworks";
 import AdminAssignments from "../pages/Admin/AdminAssignments/AdminAssignments";
 import AdminNotes from "../pages/Admin/AdminNotes/AdminNotes";
 import Posts from "../pages/Admin/Posts/Posts";
+import Verifying from "../pages/Auth/Verifying/Verifying";
+import AuthRoute from "./AuthRoute";
+import PrivateRoute from "./PrivateRoute";
+import PasswordReset from "../pages/Auth/PasswordReset/PasswordReset";
+import Credentials from "../pages/Auth/Credentials/Credentials";
+import CredentialsRoute from "./CredentialsRoute";
+import AdminRoute from "./AdminRoute";
 
 export const router = createBrowserRouter([
   {
     path: "/register",
-    element: <Register />,
+    element: (
+      <AuthRoute>
+        <Register />
+      </AuthRoute>
+    ),
   },
   {
     path: "/login",
-    element: <Login />,
+    element: (
+      <AuthRoute>
+        <Login />
+      </AuthRoute>
+    ),
+  },
+  {
+    path: "/verifying",
+    element: <Verifying />,
+  },
+  {
+    path: "/credentials",
+    element: (
+      <CredentialsRoute>
+        <Credentials />
+      </CredentialsRoute>
+    ),
+  },
+  {
+    path: "/reset-password",
+    element: (
+      <AuthRoute>
+        <PasswordReset />
+      </AuthRoute>
+    ),
   },
   {
     path: "/",
-    element: <PrimaryLayout />,
+    element: (
+      <PrivateRoute>
+        <PrimaryLayout />
+      </PrivateRoute>
+    ),
     children: [
       {
         path: "/",
@@ -70,7 +109,11 @@ export const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <DashboardLayout />,
+    element: (
+      <PrivateRoute>
+        <DashboardLayout />
+      </PrivateRoute>
+    ),
     children: [
       {
         index: true,
@@ -90,23 +133,43 @@ export const router = createBrowserRouter([
       },
       {
         path: "users",
-        element: <Users />,
+        element: (
+          <AdminRoute>
+            <Users />
+          </AdminRoute>
+        ),
       },
       {
         path: "homeworks",
-        element: <AdminHomeworks />,
+        element: (
+          <AdminRoute>
+            <AdminHomeworks />
+          </AdminRoute>
+        ),
       },
       {
         path: "assignments",
-        element: <AdminAssignments />,
+        element: (
+          <AdminRoute>
+            <AdminAssignments />
+          </AdminRoute>
+        ),
       },
       {
         path: "notes",
-        element: <AdminNotes />,
+        element: (
+          <AdminRoute>
+            <AdminNotes />
+          </AdminRoute>
+        ),
       },
       {
         path: "posts",
-        element: <Posts />,
+        element: (
+          <AdminRoute>
+            <Posts />
+          </AdminRoute>
+        ),
       },
     ],
   },
