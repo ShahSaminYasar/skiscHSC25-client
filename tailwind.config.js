@@ -9,4 +9,13 @@ export default {
   },
   darkMode: "class",
   plugins: [require("daisyui")],
+  daisyui: {
+    themes: [
+      {
+        dark: {
+          "base-100": "#010313",
+        },
+      },
+    ],
+  },
 };

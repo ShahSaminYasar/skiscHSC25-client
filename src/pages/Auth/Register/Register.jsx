@@ -72,7 +72,7 @@ const Register = () => {
         image_url = imgbb?.data?.data?.display_url;
       } else {
         setRegistering(false);
-        return toast.error("Couldn't upload image, please try again.");
+        return toast("Couldn't upload image, please try again.", "error");
       }
     }
 

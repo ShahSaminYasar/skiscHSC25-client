@@ -1,23 +1,25 @@
-import { useNavigate } from "react-router-dom";
-import useAuth from "../../../hooks/Auth/useAuth";
+import { Link } from "react-router-dom";
+import Container from "../../Container/Container";
+import { FaBarsStaggered } from "react-icons/fa6";
 
 const Header = () => {
-  const { logout } = useAuth();
-  const navigate = useNavigate();
   return (
-    <div>
-      Dashboard Header <br /> <br />{" "}
-      <button
-        onClick={() => {
-          logout();
-          return navigate("/");
-        }}
-      >
-        Logout
-      </button>
-      <br />
-      <br />
-    </div>
+    <header className="bg-[#04071F] text-white px-3 h-[70px] flex items-center border-b-2 border-b-[#241a7c]">
+      <Container className="flex flex-row gap-10 justify-between lg:justify-center items-center">
+        {/* Logo */}
+        <Link>
+          <h1 className="text-[35px] font-[300] text-white">LOGO</h1>
+        </Link>
+
+        {/* Menu Open Button */}
+        <label
+          htmlFor="dashboard-sidebar"
+          className="drawer-button lg:hidden cursor-pointer"
+        >
+          <FaBarsStaggered className="text-[22px] text-white" />
+        </label>
+      </Container>
+    </header>
   );
 };
 export default Header;
