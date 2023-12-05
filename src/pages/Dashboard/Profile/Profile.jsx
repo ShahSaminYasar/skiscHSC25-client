@@ -118,22 +118,24 @@ const Profile = () => {
       <Title className="mb-[5px]">Profile</Title>
 
       <div className="max-w-[800px] mx-auto">
-        <span className="block text-[25px] text-slate-400 font-[300] mb-3">
+        <span className="block text-[25px] text-slate-500 font-[300] mb-3">
           @{user?.username}
         </span>
         <form
           onSubmit={handleUpdateProfile}
-          className="w-full max-w-[850px] mr-auto flex flex-row gap-10 items-start"
+          className="w-full max-w-[850px] mr-auto flex flex-col md:flex-row gap-10 md:items-start items-center"
         >
           <div className="w-full max-w-[200px] relative">
-            <img
-              src={
-                profileImg ||
-                "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png"
-              }
-              alt="User Profile Picture"
-              className="w-full aspect-square object-cover rounded-xl"
-            />
+            <div className="mask mask-squircle w-[200px] h-[200px]">
+              <img
+                src={
+                  profileImg ||
+                  "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png"
+                }
+                alt="User Profile Picture"
+              />
+            </div>
+
             <div
               className={`absolute inset-0 bg-black bg-opacity-40 opacity-0 backdrop-blur-sm overflow-x-hidden flex flex-col items-center justify-center p-6 transition-opacity duration-300 pointer-events-none rounded-xl ${
                 editMode

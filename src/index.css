@@ -8,6 +8,19 @@
   transition: all 0.2s;
 }
 
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #030303;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #231956;
+}
+
 body {
   font-family: "Space Grotesk", sans-serif;
 }

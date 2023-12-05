@@ -7,14 +7,15 @@ const ProfileCard = ({ className = "" }) => {
     <div
       className={`flex flex-row gap-2 items-center justify-start ${className}`}
     >
-      <img
-        src={
-          user?.dp ||
-          "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png"
-        }
-        alt="User Profile Picture"
-        className="w-[40px] aspect-square object-cover rounded-full"
-      />
+      <div className="mask mask-squircle w-[40px] h-[40px]">
+        <img
+          src={
+            user?.dp ||
+            "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png"
+          }
+          alt="User Profile Picture"
+        />
+      </div>
       <div className="flex flex-col gap-0">
         <span className="text-white text-[18px] font-normal mb-[-3px]">
           {user?.name}

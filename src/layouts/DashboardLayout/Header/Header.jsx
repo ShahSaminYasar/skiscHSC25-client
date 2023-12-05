@@ -7,7 +7,7 @@ const Header = () => {
     <header className="bg-[#04071F] text-white px-3 h-[70px] flex items-center border-b-2 border-b-[#241a7c]">
       <Container className="flex flex-row gap-10 justify-between lg:justify-center items-center">
         {/* Logo */}
-        <Link>
+        <Link to="/">
           <h1 className="text-[35px] font-[300] text-white">LOGO</h1>
         </Link>
 

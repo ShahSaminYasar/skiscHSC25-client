@@ -7,14 +7,17 @@ const UserDropdown = () => {
 
   return (
     <div className="dropdown dropdown-end">
-      <div tabIndex={0} role="button" className="overflow-hidden rounded-full">
+      <div
+        tabIndex={0}
+        role="button"
+        className="mask mask-squircle w-[35px] h-[35px]"
+      >
         <img
           src={
             user?.dp ||
             "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png"
           }
-          alt="User display picture"
-          className="w-[36px] aspect-square object-cover"
+          alt="User Profile Picture"
         />
       </div>
       <ul

@@ -38,7 +38,7 @@ const DashboardLayout = () => {
                 aria-label="close sidebar"
                 className="drawer-overlay"
               ></label>
-              <div className="p-4 w-80 min-h-full bg-[#04071F] text-white text-[20px] font-[400] flex flex-col gap-[5px]">
+              <div className="p-4 w-[220px] xs:w-[270px] sm:w-[300px]  min-h-full bg-[#04071F] text-white text-[20px] font-[400] flex flex-col gap-[5px]">
                 {/* Sidebar content here */}
                 <ProfileCard className="mb-3" />
                 {/* Navlinks */}
@@ -79,73 +79,72 @@ const DashboardLayout = () => {
                   <FaPenNib /> My Posts
                 </NavLink>
 
-                {user?.role === "admin" ||
-                  (user?.role === "developer" && (
-                    <>
-                      <div className="divider my-0"></div>
+                {(user?.role === "admin" || user?.role === "developer") && (
+                  <>
+                    <div className="divider my-0"></div>
 
-                      <NavLink
-                        to="/dashboard/users"
-                        className={({ isActive }) =>
-                          `flex flex-row gap-2 items-center px-3 py-[6px] rounded-md ${
-                            isActive
-                              ? "bg-gradient-to-r from-[#1E245A] to-[#261053]"
-                              : "bg-transparent"
-                          }`
-                        }
-                      >
-                        <FaUsers /> Users
-                      </NavLink>
-                      <NavLink
-                        to="/dashboard/homeworks"
-                        className={({ isActive }) =>
-                          `flex flex-row gap-2 items-center px-3 py-[6px] rounded-md ${
-                            isActive
-                              ? "bg-gradient-to-r from-[#1E245A] to-[#261053]"
-                              : "bg-transparent"
-                          }`
-                        }
-                      >
-                        <FaListCheck /> Homeworks
-                      </NavLink>
-                      <NavLink
-                        to="/dashboard/assignments"
-                        className={({ isActive }) =>
-                          `flex flex-row gap-2 items-center px-3 py-[6px] rounded-md ${
-                            isActive
-                              ? "bg-gradient-to-r from-[#1E245A] to-[#261053]"
-                              : "bg-transparent"
-                          }`
-                        }
-                      >
-                        <FaClipboardList /> Assignments
-                      </NavLink>
-                      <NavLink
-                        to="/dashboard/notes"
-                        className={({ isActive }) =>
-                          `flex flex-row gap-2 items-center px-3 py-[6px] rounded-md ${
-                            isActive
-                              ? "bg-gradient-to-r from-[#1E245A] to-[#261053]"
-                              : "bg-transparent"
-                          }`
-                        }
-                      >
-                        <FaBook /> Notes
-                      </NavLink>
-                      <NavLink
-                        to="/dashboard/posts"
-                        className={({ isActive }) =>
-                          `flex flex-row gap-2 items-center px-3 py-[6px] rounded-md ${
-                            isActive
-                              ? "bg-gradient-to-r from-[#1E245A] to-[#261053]"
-                              : "bg-transparent"
-                          }`
-                        }
-                      >
-                        <FaPenNib /> Posts
-                      </NavLink>
-                    </>
-                  ))}
+                    <NavLink
+                      to="/dashboard/users"
+                      className={({ isActive }) =>
+                        `flex flex-row gap-2 items-center px-3 py-[6px] rounded-md ${
+                          isActive
+                            ? "bg-gradient-to-r from-[#1E245A] to-[#261053]"
+                            : "bg-transparent"
+                        }`
+                      }
+                    >
+                      <FaUsers /> Users
+                    </NavLink>
+                    <NavLink
+                      to="/dashboard/homeworks"
+                      className={({ isActive }) =>
+                        `flex flex-row gap-2 items-center px-3 py-[6px] rounded-md ${
+                          isActive
+                            ? "bg-gradient-to-r from-[#1E245A] to-[#261053]"
+                            : "bg-transparent"
+                        }`
+                      }
+                    >
+                      <FaListCheck /> Homeworks
+                    </NavLink>
+                    <NavLink
+                      to="/dashboard/assignments"
+                      className={({ isActive }) =>
+                        `flex flex-row gap-2 items-center px-3 py-[6px] rounded-md ${
+                          isActive
+                            ? "bg-gradient-to-r from-[#1E245A] to-[#261053]"
+                            : "bg-transparent"
+                        }`
+                      }
+                    >
+                      <FaClipboardList /> Assignments
+                    </NavLink>
+                    <NavLink
+                      to="/dashboard/notes"
+                      className={({ isActive }) =>
+                        `flex flex-row gap-2 items-center px-3 py-[6px] rounded-md ${
+                          isActive
+                            ? "bg-gradient-to-r from-[#1E245A] to-[#261053]"
+                            : "bg-transparent"
+                        }`
+                      }
+                    >
+                      <FaBook /> Notes
+                    </NavLink>
+                    <NavLink
+                      to="/dashboard/posts"
+                      className={({ isActive }) =>
+                        `flex flex-row gap-2 items-center px-3 py-[6px] rounded-md ${
+                          isActive
+                            ? "bg-gradient-to-r from-[#1E245A] to-[#261053]"
+                            : "bg-transparent"
+                        }`
+                      }
+                    >
+                      <FaPenNib /> Posts
+                    </NavLink>
+                  </>
+                )}
 
                 <div className="divider my-0"></div>
 
