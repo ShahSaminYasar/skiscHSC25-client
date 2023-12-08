@@ -17,6 +17,10 @@ import moment from "moment";
 import { Helmet } from "react-helmet";
 
 const EditHomework = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const { id } = useParams();
   const axiosPublic = useAxiosPublic();
   const axiosSecure = useAxiosSecure();
@@ -168,7 +172,7 @@ const EditHomework = () => {
           <FaChevronLeft />
         </Link>
         <Title secondary={true} className="mt-[10px] mb-[20px] my-5">
-          Add Homework
+          Edit Homework
         </Title>
 
         <form

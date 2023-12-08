@@ -20,6 +20,10 @@ const Homework = () => {
   let location = useLocation();
   location = location?.state || "/dashboard/homeworks";
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const { id } = useParams();
   let homework = useHomeworks(id);
   const homeworkState = homework;
@@ -169,7 +173,12 @@ const Homework = () => {
         <TitleSM>Files</TitleSM>
         {homework?.files?.length > 0 ? (
           homework?.files?.map((file) => (
-            <FileCard file={file} parentId={id} refetch={homeworkState?.refetch} key={file?.id} />
+            <FileCard
+              file={file}
+              parentId={id}
+              refetch={homeworkState?.refetch}
+              key={file?.id}
+            />
           ))
         ) : (
           <NoDataText>No files yet. Feel free to submit a solution.</NoDataText>

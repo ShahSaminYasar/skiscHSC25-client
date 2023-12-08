@@ -8,7 +8,7 @@ import Loader from "../../../components/Loaders/Loader";
 import { Helmet } from "react-helmet";
 
 const Profile = () => {
-  const { user, setUser } = useAuth();
+  const { user, setUser, updateUser } = useAuth();
   const toast = useToast;
   const axiosPublic = useAxiosPublic();
 
@@ -85,29 +85,36 @@ const Profile = () => {
         address,
       };
 
-      axiosPublic
-        .put("/users", updatedData)
+      updateUser(name, dp_url)
         .then((res) => {
-          if (res?.data?.message === "success") {
-            setUser({
-              ...user,
-              name: updatedData?.name,
-              dp: updatedData?.dp,
-              phone: Number(updatedData?.phone),
-              roll: Number(updatedData?.roll),
-              id: Number(updatedData?.id),
-              address: updatedData?.address,
+          console.log(res);
+          axiosPublic
+            .put("/users", updatedData)
+            .then((res) => {
+              if (res?.data?.message === "success") {
+                setUser({
+                  ...user,
+                  name: updatedData?.name,
+                  dp: updatedData?.dp,
+                  phone: Number(updatedData?.phone),
+                  roll: Number(updatedData?.roll),
+                  id: Number(updatedData?.id),
+                  address: updatedData?.address,
+                });
+                toast("Details updated", "success");
+              } else {
+                toast(res?.data?.message || "Failed to update data", "info");
+              }
+              setEditMode(false);
+              return setUpdating(false);
+            })
+            .catch((error) => {
+              toast(error?.message || "An error occured", "error");
+              return setUpdating(false);
             });
-            toast("Details updated", "success");
-          } else {
-            toast(res?.data?.message || "Failed to update data", "info");
-          }
-          setEditMode(false);
-          return setUpdating(false);
         })
         .catch((error) => {
           toast(error?.message || "An error occured", "error");
-          return setUpdating(false);
         });
     } catch (error) {
       setUpdating(false);
@@ -141,7 +148,7 @@ const Profile = () => {
             </div>
 
             <div
-              className={`absolute inset-0 bg-black bg-opacity-40 opacity-0 backdrop-blur-sm overflow-x-hidden flex flex-col items-center justify-center p-6 transition-opacity duration-300 pointer-events-none rounded-xl ${
+              className={`mask mask-squircle w-[200px] h-[200px] absolute inset-0 bg-black bg-opacity-40 opacity-0 backdrop-blur-sm overflow-hidden flex flex-col items-center justify-center p-6 transition-opacity duration-300 pointer-events-none rounded-xl ${
                 editMode
                   ? "hover:opacity-100 cursor-pointer pointer-events-auto"
                   : undefined

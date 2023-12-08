@@ -31,7 +31,10 @@ import CredentialsRoute from "./CredentialsRoute";
 import AdminRoute from "./AdminRoute";
 import AddHomework from "../pages/Admin/AddHomework/AddHomework";
 import EditHomework from "../pages/Admin/AddHomework/EditHomework";
-import Homework from "../pages/Homework.jsx/Homework";
+import Homework from "../pages/Homework/Homework";
+import AddAssignment from "../pages/Admin/AddAssignment/AddAssignment";
+import EditAssignment from "../pages/Admin/AddAssignment/EditAssignment";
+import Assignment from "../pages/Assignment/Assignment";
 
 export const router = createBrowserRouter([
   {
@@ -95,6 +98,10 @@ export const router = createBrowserRouter([
         element: <Assignments />,
       },
       {
+        path: "assignment/:id",
+        element: <Assignment />,
+      },
+      {
         path: "notes",
         element: <Notes />,
       },
@@ -134,7 +141,15 @@ export const router = createBrowserRouter([
         path: "add-assignment",
         element: (
           <AdminRoute>
-            <AddHomework />
+            <AddAssignment />
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "edit-assignment/:id",
+        element: (
+          <AdminRoute>
+            <EditAssignment />
           </AdminRoute>
         ),
       },

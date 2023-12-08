@@ -9,8 +9,13 @@ import useAxiosSecure from "../../../hooks/Axios/useAxiosSecure";
 import { useQueryClient } from "@tanstack/react-query";
 import useToast from "../../../hooks/Toaster/useToast";
 import { Helmet } from "react-helmet";
+import { useEffect } from "react";
 
 const AdminHomeworks = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   let homeworks = useHomeworks();
   const homeworkState = homeworks;
   homeworks = homeworks?.data;
