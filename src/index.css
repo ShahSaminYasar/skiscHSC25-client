@@ -52,3 +52,48 @@ h6 {
   width: 100%;
   padding: 60px 12px;
 }
+
+.buttonTwo {
+  border-radius: 10px;
+  background: linear-gradient(97deg, #1e245a 0%, #261053 100%);
+  padding: 8px 16px;
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: 400;
+  transition: all 0.3s;
+  border: 2px solid #2d1fc8;
+}
+
+.buttonTwo:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.backButton {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  background: linear-gradient(101deg, #2535d3 0%, #7e1fc8 107.59%);
+  color: #9255f5;
+}
+
+.backButton::before {
+  content: "";
+  position: absolute;
+  width: 34px;
+  height: 34px;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: block;
+  border-radius: 10px;
+  background: #1b0b47;
+}

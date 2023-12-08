@@ -5,6 +5,7 @@ import useAxiosPublic from "../../../hooks/Axios/useAxiosPublic";
 import useToast from "../../../hooks/Toaster/useToast";
 import axios from "axios";
 import Loader from "../../../components/Loaders/Loader";
+import { Helmet } from "react-helmet";
 
 const Profile = () => {
   const { user, setUser } = useAuth();
@@ -115,6 +116,9 @@ const Profile = () => {
 
   return (
     <section className="w-full">
+      <Helmet>
+        <title>Profile | SKISC HSC 2025</title>
+      </Helmet>
       <Title className="mb-[5px]">Profile</Title>
 
       <div className="max-w-[800px] mx-auto">

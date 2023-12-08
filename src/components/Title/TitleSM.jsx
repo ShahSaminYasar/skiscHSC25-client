@@ -1,4 +1,4 @@
-const Title = ({ children, className = "", secondary = false }) => {
+const TitleSM = ({ children, className = "", secondary = false }) => {
   const gradientColor = {
     background: "linear-gradient(90deg, #1F37D3 -5.27%, #861DC7 80.33%)",
     backgroundClip: "text",
@@ -6,12 +6,12 @@ const Title = ({ children, className = "", secondary = false }) => {
     WebkitTextFillColor: "transparent",
   };
   return (
-    <h2
+    <h4
       style={!secondary ? gradientColor : { color: "white" }}
-      className={`block w-fit text-[40px] mb-10 font-[600] ${className}`}
+      className={`block w-fit text-[32px] mb-2 mt-[34px] font-[600] ${className}`}
     >
       {children}
-    </h2>
+    </h4>
   );
 };
-export default Title;
+export default TitleSM;

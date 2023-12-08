@@ -3,6 +3,7 @@ import useAxiosPublic from "../../../hooks/Axios/useAxiosPublic";
 import useAuth from "../../../hooks/Auth/useAuth";
 import Loader from "../../../components/Loaders/Loader";
 import useToast from "../../../hooks/Toaster/useToast";
+import { Helmet } from "react-helmet";
 
 const Credentials = () => {
   const axiosPublic = useAxiosPublic();
@@ -72,6 +73,9 @@ const Credentials = () => {
 
   return (
     <section className="pageCenter">
+      <Helmet>
+        <title>Credentials | SKISC HSC 2025</title>
+      </Helmet>
       <form
         onSubmit={handleSubmit}
         className="shadow-lg text-[18px] rounded-[10px] bg-[#040722] py-8 px-6 w-full max-w-md mx-auto flex flex-col gap-[30px]"

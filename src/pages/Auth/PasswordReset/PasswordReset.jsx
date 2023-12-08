@@ -4,6 +4,7 @@ import Title from "../../../components/Title/Title";
 import useAuth from "../../../hooks/Auth/useAuth";
 import useToast from "../../../hooks/Toaster/useToast";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 const PasswordReset = () => {
   const inputStyle = {
@@ -43,6 +44,9 @@ const PasswordReset = () => {
 
   return !sent ? (
     <section className="pageCenter">
+      <Helmet>
+        <title>Reset Password | SKISC HSC 2025</title>
+      </Helmet>
       <form
         onSubmit={handleReset}
         className="shadow-lg text-[18px] rounded-[10px] bg-[#040722] py-6 px-6 w-full max-w-md mx-auto flex flex-col gap-[30px]"

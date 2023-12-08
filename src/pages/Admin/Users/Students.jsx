@@ -129,7 +129,7 @@ const Students = () => {
               className="text-white text-opacity-80 font-[300] text-[17px]"
             >
               <td>
-                <div className="flex items-center gap-3">
+                <div className="w-full flex items-center gap-3">
                   <div className="mask mask-squircle w-[48px] h-[48px]">
                     <img
                       src={
@@ -191,6 +191,7 @@ const Students = () => {
                     <button
                       className="btn btn-sm bg-[#261053] hover:bg-[#43257e] text-[#873ace] hover:text-[#dccaff] text-opacity-90 font-[500]"
                       onClick={() => handleMakeAdmin(student?.username)}
+                      disabled={student?.banned === true}
                     >
                       To Admin
                     </button>

@@ -1,3 +1,5 @@
+// TODO: Update profile data in firebase along with DB
+
 import { createBrowserRouter } from "react-router-dom";
 import Login from "../pages/Auth/Login/Login";
 import Register from "../pages/Auth/Register/Register";
@@ -27,6 +29,9 @@ import PasswordReset from "../pages/Auth/PasswordReset/PasswordReset";
 import Credentials from "../pages/Auth/Credentials/Credentials";
 import CredentialsRoute from "./CredentialsRoute";
 import AdminRoute from "./AdminRoute";
+import AddHomework from "../pages/Admin/AddHomework/AddHomework";
+import EditHomework from "../pages/Admin/AddHomework/EditHomework";
+import Homework from "../pages/Homework.jsx/Homework";
 
 export const router = createBrowserRouter([
   {
@@ -82,6 +87,10 @@ export const router = createBrowserRouter([
         element: <Homeworks />,
       },
       {
+        path: "homework/:id",
+        element: <Homework />,
+      },
+      {
         path: "assignments",
         element: <Assignments />,
       },
@@ -104,6 +113,30 @@ export const router = createBrowserRouter([
       {
         path: "votes",
         element: <Votes />,
+      },
+      {
+        path: "add-homework",
+        element: (
+          <AdminRoute>
+            <AddHomework />
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "edit-homework/:id",
+        element: (
+          <AdminRoute>
+            <EditHomework />
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "add-assignment",
+        element: (
+          <AdminRoute>
+            <AddHomework />
+          </AdminRoute>
+        ),
       },
     ],
   },
