@@ -30,7 +30,8 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+span {
   user-select: none;
 }
 
@@ -83,7 +84,6 @@ h6 {
   background: linear-gradient(101deg, #2535d3 0%, #7e1fc8 107.59%);
   color: #9255f5;
 }
-
 .backButton::before {
   content: "";
   position: absolute;
@@ -96,6 +96,52 @@ h6 {
   display: block;
   border-radius: 10px;
   background: #1b0b47;
+}
+
+.toButton {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+.homeworksToButton {
+  background: linear-gradient(101deg, #2535d3 0%, #7e1fc8 107.59%);
+  color: #9255f5;
+}
+.assignmentsToButton {
+  background: linear-gradient(101deg, #01a5fe 0%, #0136ef 107.59%);
+  color: #01a4fe;
+}
+.notesToButton {
+  background: linear-gradient(101deg, #00b786 0%, #024640 107.59%);
+  color: #00eca5;
+}
+.toButton::before {
+  content: "";
+  position: absolute;
+  width: 34px;
+  height: 34px;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: block;
+  border-radius: 10px;
+}
+.homeworksToButton::before {
+  background: #1b0b47;
+}
+.assignmentsToButton::before {
+  background: #0e1d50;
+}
+.notesToButton::before {
+  background: #0f2425;
 }
 
 .jodit-workplace {
@@ -131,4 +177,8 @@ h6 {
 
 .jodit-toolbar-button__icon:empty + .jodit-toolbar-button__text:not(:empty) {
   color: #fff !important;
+}
+
+.swiper-slide {
+  transition: none;
 }

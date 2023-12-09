@@ -6,7 +6,7 @@ import NoDataText from "../../components/NoData/NoDataText";
 import DetailsPageTitle from "../../components/Title/DetailsPageTitle";
 import TitleSM from "../../components/Title/TitleSM";
 import { Helmet } from "react-helmet";
-import FileCard from "../../components/FileCard/FileCard";
+import FileCard from "../../components/Cards/FileCard/FileCard";
 import { useEffect, useState } from "react";
 import useAxiosSecure from "../../hooks/Axios/useAxiosSecure";
 import Loader from "../../components/Loaders/Loader";

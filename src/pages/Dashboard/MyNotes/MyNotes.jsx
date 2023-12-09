@@ -19,7 +19,7 @@ const MyNotes = () => {
   }, []);
 
   const { user } = useAuth();
-  let notes = useNotes(user?.username);
+  let notes = useNotes(user?.username, null, null, true);
   const notesState = notes;
   notes = notes?.data;
   const axiosSecure = useAxiosSecure();

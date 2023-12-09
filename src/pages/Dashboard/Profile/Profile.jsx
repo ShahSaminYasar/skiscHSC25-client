@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Title from "../../../components/Title/Title";
 import useAuth from "../../../hooks/Auth/useAuth";
 import useAxiosPublic from "../../../hooks/Axios/useAxiosPublic";
@@ -8,6 +8,10 @@ import Loader from "../../../components/Loaders/Loader";
 import { Helmet } from "react-helmet";
 
 const Profile = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const { user, setUser, updateUser } = useAuth();
   const toast = useToast;
   const axiosPublic = useAxiosPublic();

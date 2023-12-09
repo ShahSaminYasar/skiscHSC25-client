@@ -27,11 +27,11 @@ const Header = () => {
   ];
 
   return (
-    <header className="bg-[#04071F] text-white px-3 h-[70px] flex items-center">
+    <header className="bg-[#04071F] bg-opacity-70 backdrop-blur-md text-white px-3 h-[70px] flex items-center fixed top-0 left-0 w-full z-[998]">
       <Container className="flex flex-row gap-10 justify-between items-center">
         {/* Logo */}
         <Link to="/">
-          <h1 className="text-[35px] font-[300] text-white">LOGO</h1>
+          <h1 className="text-[35px] font-[400] text-white">SKISC HSC25</h1>
         </Link>
 
         {/* Navlinks */}

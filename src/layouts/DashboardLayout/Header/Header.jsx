@@ -8,7 +8,7 @@ const Header = () => {
       <Container className="flex flex-row gap-10 justify-between lg:justify-center items-center">
         {/* Logo */}
         <Link to="/">
-          <h1 className="text-[35px] font-[300] text-white">LOGO</h1>
+          <h1 className="text-[35px] font-[400] text-white">SKISC HSC25</h1>
         </Link>
 
         {/* Menu Open Button */}

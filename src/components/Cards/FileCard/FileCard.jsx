@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-import useUser from "../../hooks/GET/useUser";
-import Loader from "../Loaders/Loader";
-import useAuth from "../../hooks/Auth/useAuth";
-import useAxiosSecure from "../../hooks/Axios/useAxiosSecure";
-import useToast from "../../hooks/Toaster/useToast";
+import useUser from "../../../hooks/GET/useUser";
+import Loader from "../../Loaders/Loader";
+import useAuth from "../../../hooks/Auth/useAuth";
+import useAxiosSecure from "../../../hooks/Axios/useAxiosSecure";
+import useToast from "../../../hooks/Toaster/useToast";
 import { useState } from "react";
 
 const FileCard = ({ file, parentId, refetch }) => {

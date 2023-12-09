@@ -17,7 +17,7 @@ const AdminNotes = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  let notes = useNotes();
+  let notes = useNotes(null, null, null, true);
   const notesState = notes;
   notes = notes?.data;
   const axiosSecure = useAxiosSecure();
