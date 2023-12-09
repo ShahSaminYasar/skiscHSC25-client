@@ -53,7 +53,11 @@ const Note = () => {
             <FaChevronLeft />
           </Link>
         </div>
-        {!note?.approved && <span className="text-red-500 text-[20px] font-[500] py-1 px-2 rounded-md bg-black shadow-md">Blocked</span>}
+        {!note?.approved && (
+          <span className="text-red-500 text-[20px] font-[500] py-1 px-2 rounded-md bg-black shadow-md">
+            NOT APPROVED YET
+          </span>
+        )}
         <DetailsPageTitle type={"note"}>{note?.subject}</DetailsPageTitle>
         <div className="flex flex-row items-center gap-1 justify-start mb-4">
           <div className="flex flex-row gap-2 items-center justify-start w-full">

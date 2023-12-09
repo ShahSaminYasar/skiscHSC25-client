@@ -97,3 +97,38 @@ h6 {
   border-radius: 10px;
   background: #1b0b47;
 }
+
+.jodit-workplace {
+  background-color: #0b0f2e !important;
+}
+
+.jodit-toolbar__box:not(:empty):not(:empty) {
+  background-color: #171b3b !important;
+}
+
+.jodit-icon {
+  stroke: #fff !important;
+  fill: #fff !important;
+}
+
+.jodit-container:not(.jodit_inline) {
+  border-radius: 5px !important;
+  overflow: hidden !important;
+  border: none;
+}
+
+.jodit-status-bar a.jodit-status-bar-link {
+  display: none !important;
+}
+
+.jodit-toolbar__box:not(:empty) {
+  border-bottom: none !important;
+}
+
+.jodit-popup__content {
+  background: #171b3b !important;
+}
+
+.jodit-toolbar-button__icon:empty + .jodit-toolbar-button__text:not(:empty) {
+  color: #fff !important;
+}

@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import Loader from "../../../components/Loaders/Loader";
 import useToast from "../../../hooks/Toaster/useToast";
 import useAxiosSecure from "../../../hooks/Axios/useAxiosSecure";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
 import { useQueryClient } from "@tanstack/react-query";
 import Swal from "sweetalert2";
 import NoDataText from "../../../components/NoData/NoDataText";
@@ -48,6 +48,10 @@ const EditNote = () => {
         {noteState?.error || "An error occured. Please refresh and try again."}
       </NoDataText>
     );
+
+  if (note?.by !== user?.username) {
+    return <Navigate to="/dashboard/my-notes" />;
+  }
 
   const inputStyle = {
     fontSize: "20px",

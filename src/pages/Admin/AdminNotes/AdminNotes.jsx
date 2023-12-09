@@ -51,7 +51,7 @@ const AdminNotes = () => {
           .then((res) => {
             if (res?.data?.message === "success") {
               Swal.fire({
-                title: "Blocked",
+                title: `${approved ? "Blocked" : "Unblocked"}`,
                 text: `The note has been ${
                   approved ? "blocked" : "unblocked"
                 }.`,
@@ -61,6 +61,7 @@ const AdminNotes = () => {
               queryClient.invalidateQueries({ id: ["getNotes"] });
               toast.dismiss();
             } else {
+              toast.dismiss();
               Swal.fire({
                 title: "Not sure",
                 text: res?.data?.message,
@@ -70,6 +71,7 @@ const AdminNotes = () => {
             }
           })
           .catch((error) => {
+            toast.dismiss();
             return customToast(error?.message || "An error occured", "error");
           });
       }

@@ -38,6 +38,9 @@ import Assignment from "../pages/Assignment/Assignment";
 import AddNote from "../pages/Dashboard/MyNotes/AddNote";
 import EditNote from "../pages/Dashboard/MyNotes/EditNote";
 import Note from "../pages/Note/Note";
+import AddPost from "../pages/Dashboard/MyPosts/AddPost";
+import Blog from "../pages/Blog/Blog";
+import EditPost from "../pages/Dashboard/MyPosts/EditPost";
 
 export const router = createBrowserRouter([
   {
@@ -117,6 +120,10 @@ export const router = createBrowserRouter([
         element: <Blogs />,
       },
       {
+        path: "post/:id",
+        element: <Blog />,
+      },
+      {
         path: "qna",
         element: <QnA />,
       },
@@ -167,6 +174,14 @@ export const router = createBrowserRouter([
       {
         path: "edit-note/:id",
         element: <EditNote />,
+      },
+      {
+        path: "add-post",
+        element: <AddPost />,
+      },
+      {
+        path: "edit-post/:id",
+        element: <EditPost />,
       },
     ],
   },

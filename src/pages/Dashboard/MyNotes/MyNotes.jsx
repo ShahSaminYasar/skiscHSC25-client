@@ -130,7 +130,11 @@ const MyNotes = () => {
                       note?.approved ? "text-[#3ace89]" : "text-[#ce3a3a]"
                     }
                   >
-                    {note?.approved ? "Approved" : "Waiting"}
+                    <span className="block w-[100px] mx-auto">
+                      {note?.approved
+                        ? "Approved"
+                        : "Waiting for admin approval"}
+                    </span>
                   </td>
                   <td>
                     <div className="grid grid-cols-1 gap-1 max-w-[90px] ml-auto">
