@@ -42,6 +42,8 @@ import AddPost from "../pages/Dashboard/MyPosts/AddPost";
 import Blog from "../pages/Blog/Blog";
 import EditPost from "../pages/Dashboard/MyPosts/EditPost";
 import Stats from "../pages/Admin/Stats/Stats";
+import AdminMessages from "../pages/Admin/AdminMessages/AdminMessages";
+import AdminMessage from "../pages/Admin/AdminMessages/AdminMessage";
 
 export const router = createBrowserRouter([
   {
@@ -255,6 +257,22 @@ export const router = createBrowserRouter([
         element: (
           <AdminRoute>
             <Posts />
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "messages",
+        element: (
+          <AdminRoute>
+            <AdminMessages />
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "message/:id",
+        element: (
+          <AdminRoute>
+            <AdminMessage />
           </AdminRoute>
         ),
       },

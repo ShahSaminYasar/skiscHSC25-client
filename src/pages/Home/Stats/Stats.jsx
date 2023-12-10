@@ -12,27 +12,52 @@ const Stats = () => {
   const collegeState = useCollegeState();
 
   const [collegeOpen, setCollegeOpen] = useState(true);
+  const [today, setToday] = useState(true);
+  console.log("Hour: ", moment().hour());
 
   useEffect(() => {
     if (collegeState?.isLoading || collegeState?.error) return;
-    const today = moment().day();
-    if (today === 5 || today === 6) {
-      const check = collegeState.open.includes(
-        moment().add(1, "d").format("YYYY-MM-DD")
-      );
-      if (check) {
-        setCollegeOpen(true);
+    if (moment().hour() <= 13) {
+      setToday(true);
+      const today = moment().day();
+      if (today === 5 || today === 6) {
+        const check = collegeState.open.includes(moment().format("YYYY-MM-DD"));
+        if (check) {
+          setCollegeOpen(true);
+        } else {
+          setCollegeOpen(false);
+        }
       } else {
-        setCollegeOpen(false);
+        const check = collegeState.close.includes(
+          moment().format("YYYY-MM-DD")
+        );
+        if (check) {
+          setCollegeOpen(false);
+        } else {
+          setCollegeOpen(true);
+        }
       }
     } else {
-      const check = collegeState.close.includes(
-        moment().add(1, "d").format("YYYY-MM-DD")
-      );
-      if (check) {
-        setCollegeOpen(false);
+      setToday(false);
+      const tomorrow = moment().add(1, "d").day();
+      if (tomorrow === 5 || tomorrow === 6) {
+        const check = collegeState.open.includes(
+          moment().add(1, "d").format("YYYY-MM-DD")
+        );
+        if (check) {
+          setCollegeOpen(true);
+        } else {
+          setCollegeOpen(false);
+        }
       } else {
-        setCollegeOpen(true);
+        const check = collegeState.close.includes(
+          moment().add(1, "d").format("YYYY-MM-DD")
+        );
+        if (check) {
+          setCollegeOpen(false);
+        } else {
+          setCollegeOpen(true);
+        }
       }
     }
   }, [collegeState]);
@@ -79,10 +104,10 @@ const Stats = () => {
                     >
                       {collegeOpen ? "open" : "off"}
                     </span>{" "}
-                    tomorrow
+                    {today ? "today" : "tomorrow"}
                   </span>
                 )}
-                <span className="text-[25px] font-[500] text-[#da145d] block mt-2 mb-1">
+                <span className="text-[25px] font-[500] text-[#da1438] block mt-2 mb-1">
                   Due Tasks
                 </span>
                 <DueTasks />

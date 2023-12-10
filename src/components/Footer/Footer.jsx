@@ -9,7 +9,7 @@ const Footer = () => {
         backgroundPosition: "center",
         borderTop: "3px solid #2D1FC8",
       }}
-      className="hidden md:block"
+      className="hidden mdd:block"
     >
       <Container
         className={`py-20 px-3 text-white text-center text-[20px] font-[300]`}

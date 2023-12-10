@@ -7,6 +7,7 @@ import {
   FaBook,
   FaClipboardList,
   FaDoorOpen,
+  FaEnvelope,
   FaGears,
   FaHouse,
   FaIdBadge,
@@ -155,6 +156,18 @@ const DashboardLayout = () => {
                       }
                     >
                       <FaPenNib /> Posts
+                    </NavLink>
+                    <NavLink
+                      to="/dashboard/messages"
+                      className={({ isActive }) =>
+                        `flex flex-row gap-2 items-center px-3 py-[6px] rounded-md ${
+                          isActive
+                            ? "bg-gradient-to-r from-[#1E245A] to-[#261053]"
+                            : "bg-transparent"
+                        }`
+                      }
+                    >
+                      <FaEnvelope /> Messages
                     </NavLink>
                   </>
                 )}

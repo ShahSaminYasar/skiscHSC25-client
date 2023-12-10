@@ -9,7 +9,7 @@ const PrimaryLayout = () => {
       <main className="mdd:mt-[70px]">
         <Outlet />
       </main>
-      <div className="mt-8 mdd:mt-2"></div>
+      <div className="mt-8 mdd:mt-0"></div>
       <Footer />
     </>
   );

@@ -4,6 +4,7 @@ import Homeworks from "./Homeworks/Homeworks";
 import Notes from "./Notes/Notes";
 import Posts from "./Posts/Posts";
 import Stats from "./Stats/Stats";
+import Contact from "./Contact/Contact";
 
 const Home = () => {
   return (
@@ -16,6 +17,7 @@ const Home = () => {
       <Assignments />
       <Notes />
       <Posts />
+      <Contact/>
     </>
   );
 };

@@ -1,7 +1,7 @@
 import useUser from "../../hooks/GET/useUser";
 import Loader from "../Loaders/Loader";
 
-const DPName = ({ username }) => {
+const DPName = ({ username, className = "", textStyle = "" }) => {
   let user = useUser(username);
 
   if (user?.isLoading) return <Loader />;
@@ -13,7 +13,11 @@ const DPName = ({ username }) => {
     );
 
   return (
-    <div className="flex flex-row gap-2 items-center">
+    <div
+      className={`flex flex-row gap-2 items-center  text-[#ffffff] text-xl font-[300] ${
+        className && className
+      }`}
+    >
       <div className="mask mask-squircle w-[32px] h-[32px]">
         <img
           src={
@@ -23,9 +27,7 @@ const DPName = ({ username }) => {
           alt="User Profile Picture"
         />
       </div>
-      <span className="block text-[#ffffff] text-[20px] font-[300]">
-        {user?.[0]?.name}
-      </span>
+      <span className={`block ${textStyle}`}>{user?.[0]?.name}</span>
     </div>
   );
 };
