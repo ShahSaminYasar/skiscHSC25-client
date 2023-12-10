@@ -116,7 +116,7 @@ const Posts = () => {
                   key={post?._id}
                   className="text-white text-opacity-80 font-[300] text-[17px] text-center"
                 >
-                  <td>
+                  <td className="min-w-[130px]">
                     <img
                       src={
                         post?.thumbnail ||
@@ -126,9 +126,9 @@ const Posts = () => {
                       className="w-[100px] aspect-[16/10] object-cover rounded-sm block mx-auto"
                     />
                   </td>
-                  <td className="text-left">{post?.title}</td>
+                  <td className="text-left min-w-[250px]">{post?.title}</td>
                   <td>{post?.likes?.length}</td>
-                  <td className="text-left">
+                  <td className="text-left min-w-[250px]">
                     @{post?.by}
                     <br />
                     <span className="block text-white text-opacity-50 text-[17px]">

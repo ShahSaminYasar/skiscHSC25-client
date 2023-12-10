@@ -1,0 +1,22 @@
+.verticalSlider > .swiper-pagination-bullets,
+.verticalSlider > .swiper-pagination-vertical.swiper-pagination-bullets {
+  top: 0 !important;
+  scale: 0.5 !important;
+  transform: translate3d(0px, 0%, 0) !important;
+}
+
+.verticalSlider .swiper-wrapper {
+  height: 60px !important;
+}
+
+.updatesSlider .swiper-pagination-bullet-active {
+  background: #2fabc1;
+}
+
+.noticesSlider .swiper-pagination-bullet-active {
+  background: #00eca5;
+}
+
+.verticalSlider .swiper-slide {
+  overflow: hidden;
+}

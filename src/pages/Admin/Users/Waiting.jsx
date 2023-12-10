@@ -89,7 +89,7 @@ const Waiting = () => {
                 key={request?._id}
                 className="text-white text-opacity-80 font-[300] text-[17px]"
               >
-                <td>
+                <td className="min-w-[230px]">
                   <div className="flex items-center gap-3">
                     <div className="mask mask-squircle w-[48px] h-[48px]">
                       <img
@@ -108,7 +108,7 @@ const Waiting = () => {
                     </div>
                   </div>
                 </td>
-                <td>
+                <td className="min-w-[350px]">
                   <div className="text-[16px] opacity-80 mb-1">
                     <FaEnvelope className="inline-block mt-[-3px] mr-1" />
                     {request?.email}

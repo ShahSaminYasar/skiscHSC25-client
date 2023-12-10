@@ -7,6 +7,7 @@ import {
   FaBook,
   FaClipboardList,
   FaDoorOpen,
+  FaGears,
   FaHouse,
   FaIdBadge,
   FaListCheck,
@@ -83,6 +84,18 @@ const DashboardLayout = () => {
                   <>
                     <div className="divider my-0"></div>
 
+                    <NavLink
+                      to="/dashboard/stats"
+                      className={({ isActive }) =>
+                        `flex flex-row gap-2 items-center px-3 py-[6px] rounded-md ${
+                          isActive
+                            ? "bg-gradient-to-r from-[#1E245A] to-[#261053]"
+                            : "bg-transparent"
+                        }`
+                      }
+                    >
+                      <FaGears /> Stats
+                    </NavLink>
                     <NavLink
                       to="/dashboard/users"
                       className={({ isActive }) =>

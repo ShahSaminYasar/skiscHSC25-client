@@ -63,7 +63,7 @@ const Assignments = () => {
                 slidesPerView={2}
                 spaceBetween={10}
                 breakpoints={{
-                  640: {
+                  710: {
                     slidesPerView: 3,
                     spaceBetween: 10,
                   },
@@ -92,7 +92,7 @@ const Assignments = () => {
                 <FaChevronRight />
               </button>
             </div>
-            <SeeAllButton to={`/assignments`} />
+            <SeeAllButton to={`/assignments`} className="ml-auto" />
           </>
         )}
       </Container>

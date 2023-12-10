@@ -8,7 +8,7 @@ const TitleSM = ({ children, className = "", secondary = false }) => {
   return (
     <h4
       style={!secondary ? gradientColor : { color: "white" }}
-      className={`block w-fit text-[32px] mb-2 mt-[34px] font-[600] ${className}`}
+      className={`block w-fit text-[32px] mb-2 mt-8 font-[600] ${className}`}
     >
       {children}
     </h4>

@@ -65,6 +65,13 @@ span {
   border: 2px solid #2d1fc8;
 }
 
+@media screen and (max-width: 450px) {
+  .buttonTwo {
+    padding: 6px 8px;
+    font-size: 16px;
+  }
+}
+
 .buttonTwo:hover {
   background: rgba(255, 255, 255, 0.04);
   border-color: rgba(255, 255, 255, 0.4);
@@ -179,6 +186,22 @@ span {
   color: #fff !important;
 }
 
-.swiper-slide {
+/* .swiper-slide {
   transition: none;
+} */
+
+.openStatusAnimation {
+  animation: openStatusAnimation 1.7s infinite;
+}
+
+@keyframes openStatusAnimation {
+  0% {
+    opacity: 100%;
+  }
+  40% {
+    opacity: 30%;
+  }
+  100% {
+    opacity: 100%;
+  }
 }

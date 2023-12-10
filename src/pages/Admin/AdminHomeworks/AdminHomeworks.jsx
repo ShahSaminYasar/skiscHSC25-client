@@ -104,12 +104,12 @@ const AdminHomeworks = () => {
                   <td>{homework?.subject}</td>
                   <td>{homework?.chapter}</td>
                   <td>{homework?.topic}</td>
-                  <td>
+                  <td className="min-w-[200px]">
                     S: {moment(homework?.issuedDate).format("DD MMM Y")}
                     <br />
                     E: {moment(homework?.dueDate).format("DD MMM Y")}
                   </td>
-                  <td>
+                  <td className="min-w-[100px]">
                     Files: {homework?.files?.length}
                     <br />
                     Req: {homework?.fileReq}

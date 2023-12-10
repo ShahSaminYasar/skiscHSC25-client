@@ -40,7 +40,7 @@ const Homeworks = () => {
   const { isFirst, isLast } = slideState;
 
   return (
-    <section className="section bg-[#0A0417]">
+    <section className="section bg-[#01020E]">
       <Container>
         <Title>Homeworks</Title>
         {homeworksState?.isLoading ? (
@@ -63,7 +63,7 @@ const Homeworks = () => {
                 slidesPerView={2}
                 spaceBetween={10}
                 breakpoints={{
-                  640: {
+                  710: {
                     slidesPerView: 3,
                     spaceBetween: 10,
                   },
@@ -92,7 +92,7 @@ const Homeworks = () => {
                 <FaChevronRight />
               </button>
             </div>
-            <SeeAllButton to={`/homeworks`} />
+            <SeeAllButton to={`/homeworks`} className="ml-auto" />
           </>
         )}
       </Container>

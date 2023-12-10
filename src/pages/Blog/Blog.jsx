@@ -18,6 +18,7 @@ import TitleSM from "../../components/Title/TitleSM";
 
 const Blog = () => {
   let location = useLocation();
+  console.log(location)
   location = location?.state || "/dashboard/my-posts";
 
   useEffect(() => {
@@ -158,15 +159,15 @@ const Blog = () => {
               ✕
             </button>
           </form>
-          <TitleSM className="-mt-[10px]">Likes</TitleSM>
-          {post?.likes?.map((like) => (
+          <TitleSM className="mt-[-10px]">Likes</TitleSM>
+          {post?.likes?.length > 0 ? post?.likes?.map((like) => (
             <div
               key={like}
               className="px-2 py-2 border-b-[1px] border-b-slate-900"
             >
               <DPName username={like} />
             </div>
-          ))}
+          )) : <NoDataText>No likes yet.</NoDataText>}
         </div>
       </dialog>
     </section>

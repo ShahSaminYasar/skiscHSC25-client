@@ -11,11 +11,14 @@ import {
 import SeeAllButton from "../../Buttons/SeeAllButton";
 import "./PostCardLG.css";
 import parse from "html-react-parser";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const PostCardLG = ({ post, slideState, handleNextSlide, handlePrevSlide }) => {
   const postedBy = useUser(post?.by);
   const { user } = useAuth();
+
+  let location = useLocation();
+  location = location?.pathname || "/";
 
   const { isFirst, isLast } = slideState;
 
@@ -43,7 +46,7 @@ const PostCardLG = ({ post, slideState, handleNextSlide, handlePrevSlide }) => {
     >
       <div className="bg-[#0D0321] text-white p-5 rounded-[15px] grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-5">
         {/* Left side [Thumbnail] */}
-        <Link to={`/post/${post?._id}`} state={"/"}>
+        <Link to={`/post/${post?._id}`} state={location}>
           <img
             src={
               post?.thumbnail ||
@@ -58,7 +61,7 @@ const PostCardLG = ({ post, slideState, handleNextSlide, handlePrevSlide }) => {
         <div className="flex flex-col justify-between gap-3 sm:h-full sm:col-span-2">
           <Link
             to={`/post/${post?._id}`}
-            state={"/"}
+            state={location}
             className="mb-[0px] text-[24px] sm:text-[28px] md:text-[30px] block w-fit font-[400]"
           >
             {post?.title?.length > 40
@@ -88,14 +91,14 @@ const PostCardLG = ({ post, slideState, handleNextSlide, handlePrevSlide }) => {
               </div>
             </div>
           )}
-          <Link to={`/post/${post?._id}`} state={"/"}>
+          <Link to={`/post/${post?._id}`} state={location}>
             <p className="text-white text-opacity-80 text-[17px] text-justify">
               {content?.length > 200 ? content?.slice(0, 200) + "..." : content}
             </p>
           </Link>
           <Link
             to={`/post/${post?._id}`}
-            state={"/"}
+            state={location}
             className="text-[#F5154B] flex items-center gap-2 text-[18px] mb-5"
           >
             <span className="text-[23px] mt-[-2px] cursor-pointer">
@@ -113,16 +116,17 @@ const PostCardLG = ({ post, slideState, handleNextSlide, handlePrevSlide }) => {
           </Link>
 
           {/* Buttons */}
-          <div className="flex flex-row justify-between items-center gap-3">
+          <div className="w-full flex flex-row justify-between items-center gap-3">
             {/* See all button link */}
             <SeeAllButton
               to={`/post/${post?._id}`}
+              state={location}
               text="Read"
-              className="ml-[0px] mt-auto"
+              className="ml-0 mt-auto mr-auto"
             ></SeeAllButton>
 
             {/* Navigation Buttons */}
-            <div className="absolute bottom-[40px] right-5 z-[10] flex flex-row gap-2 items-center">
+            <div className="flex flex-row gap-2 items-center">
               <button
                 onClick={handlePrevSlide}
                 className={`text-[20px] text-[#9255F5] bg-transparent block disabled:opacity-50 backButton`}

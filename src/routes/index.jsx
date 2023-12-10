@@ -41,6 +41,7 @@ import Note from "../pages/Note/Note";
 import AddPost from "../pages/Dashboard/MyPosts/AddPost";
 import Blog from "../pages/Blog/Blog";
 import EditPost from "../pages/Dashboard/MyPosts/EditPost";
+import Stats from "../pages/Admin/Stats/Stats";
 
 export const router = createBrowserRouter([
   {
@@ -208,6 +209,14 @@ export const router = createBrowserRouter([
       {
         path: "my-posts",
         element: <MyPosts />,
+      },
+      {
+        path: "stats",
+        element: (
+          <AdminRoute>
+            <Stats />
+          </AdminRoute>
+        ),
       },
       {
         path: "users",

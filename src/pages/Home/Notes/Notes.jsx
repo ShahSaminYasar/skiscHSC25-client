@@ -106,7 +106,7 @@ const Notes = () => {
                 <FaChevronRight />
               </button>
             </div>
-            <SeeAllButton to={`/notes`} />
+            <SeeAllButton to={`/notes`} className="ml-auto" />
           </>
         )}
       </Container>

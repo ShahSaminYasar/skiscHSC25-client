@@ -17,7 +17,7 @@ const useAssignments = (id, limit, nearest) => {
   }
 
   const { data, isLoading, isError, error, refetch } = useQuery({
-    queryKey: ["getAssignments", id],
+    queryKey: ["getAssignments", id, limit, nearest],
     queryFn: () => axiosPublic.get(url),
   });
 

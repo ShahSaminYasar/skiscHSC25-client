@@ -104,12 +104,12 @@ const AdminAssignments = () => {
                   <td>{assignment?.subject}</td>
                   <td>{assignment?.chapter}</td>
                   <td>{assignment?.topic}</td>
-                  <td>
+                  <td className="min-w-[200px]">
                     S: {moment(assignment?.issuedDate).format("DD MMM Y")}
                     <br />
                     E: {moment(assignment?.dueDate).format("DD MMM Y")}
                   </td>
-                  <td>
+                  <td className="min-w-[100px]">
                     Files: {assignment?.files?.length}
                     <br />
                     Req: {assignment?.fileReq}

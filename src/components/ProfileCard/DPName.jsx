@@ -13,8 +13,8 @@ const DPName = ({ username }) => {
     );
 
   return (
-    <div className="flex flex-row gap-1 items-center">
-      <div className="mask mask-squircle w-[26px] h-[26px]">
+    <div className="flex flex-row gap-2 items-center">
+      <div className="mask mask-squircle w-[32px] h-[32px]">
         <img
           src={
             user?.[0]?.dp ||
@@ -23,7 +23,7 @@ const DPName = ({ username }) => {
           alt="User Profile Picture"
         />
       </div>
-      <span className="block text-[#ffffff] text-[16px] font-[300]">
+      <span className="block text-[#ffffff] text-[20px] font-[300]">
         {user?.[0]?.name}
       </span>
     </div>

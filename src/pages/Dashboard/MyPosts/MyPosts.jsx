@@ -119,7 +119,7 @@ const MyPosts = () => {
                   key={post?._id}
                   className="text-white text-opacity-80 font-[300] text-[17px] text-center"
                 >
-                  <td>
+                  <td className="min-w-[150px]">
                     <img
                       src={
                         post?.thumbnail ||
@@ -129,9 +129,11 @@ const MyPosts = () => {
                       className="w-[100px] aspect-[16/10] object-cover rounded-sm block mx-auto"
                     />
                   </td>
-                  <td className="text-left">{post?.title}</td>
+                  <td className="text-left min-w-[250px]">{post?.title}</td>
                   <td>{post?.likes?.length}</td>
-                  <td>{moment(post?.date).format("DD MMM Y")}</td>
+                  <td className="min-w-[150px]">
+                    {moment(post?.date).format("DD MMM Y")}
+                  </td>
                   <td
                     className={
                       post?.approved ? "text-[#3ace89]" : "text-[#ce3a3a]"

@@ -117,7 +117,7 @@ const AdminNotes = () => {
                   key={note?._id}
                   className="text-white text-opacity-80 font-[300] text-[17px] text-left"
                 >
-                  <td>
+                  <td className="min-w-[230px]">
                     Subject: {note?.subject}
                     <br />
                     Chapter: {note?.chapter}

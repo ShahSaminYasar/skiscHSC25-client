@@ -44,7 +44,7 @@ const Posts = () => {
           <NoDataText className="text-red-500">{postsState?.error}</NoDataText>
         ) : (
           <>
-            <div className="px-0 relative w-full max-w-[400px] sm:max-w-[700px] mx-auto">
+            <div className="px-0 relative w-full max-w-[400px] sm:max-w-[850px] mx-auto">
               <Swiper
                 slidesPerView={1}
                 spaceBetween={10}
@@ -74,7 +74,7 @@ const Posts = () => {
                 ))}
               </Swiper>
             </div>
-            <SeeAllButton to={`/blog`} />
+            <SeeAllButton to={`/blog`} className="ml-auto" />
           </>
         )}
       </Container>

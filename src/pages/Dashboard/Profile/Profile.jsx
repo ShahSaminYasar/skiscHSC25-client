@@ -152,9 +152,11 @@ const Profile = () => {
             </div>
 
             <div
-              className={`mask mask-squircle w-[200px] h-[200px] absolute inset-0 bg-black bg-opacity-40 opacity-0 backdrop-blur-sm overflow-hidden flex flex-col items-center justify-center p-6 transition-opacity duration-300 pointer-events-none rounded-xl ${
+              className={`mask mask-squircle w-[200px] h-[200px] absolute inset-0 bg-black bg-opacity-40 ${
+                editMode ? "opacity-100 md:opacity-0" : "opacity-0 md:opacity-0"
+              } backdrop-blur-sm overflow-hidden flex flex-col items-center justify-center p-6 transition-opacity duration-300 pointer-events-none rounded-xl ${
                 editMode
-                  ? "hover:opacity-100 cursor-pointer pointer-events-auto"
+                  ? "md:hover:opacity-100 cursor-pointer pointer-events-auto"
                   : undefined
               }`}
             >
@@ -168,64 +170,118 @@ const Profile = () => {
           </div>
 
           <div className="w-full flex flex-col gap-4">
-            <input
-              type="text"
-              style={inputStyle}
-              name="name"
-              placeholder="Name"
-              defaultValue={user?.name}
-              className={editMode ? "border-[#3C3F58]" : "border-transparent"}
-              disabled={!editMode}
-              required
-            />
-            <input
-              type="email"
-              style={inputStyle}
-              name="email"
-              placeholder="Email"
-              defaultValue={user?.email}
-              className={"border-transparent"}
-              disabled={true}
-            />
-            <input
-              type="number"
-              style={inputStyle}
-              name="phone"
-              placeholder="Phone"
-              defaultValue={user?.phone}
-              className={editMode ? "border-[#3C3F58]" : "border-transparent"}
-              disabled={!editMode}
-              required
-            />
-            <div className="flex flex-row gap-4">
+            <div>
+              <label
+                htmlFor="name"
+                className="text-white text-opacity-70 text-[14px] xss:text-[17px]"
+              >
+                Name
+              </label>
               <input
-                type="number"
+                type="text"
                 style={inputStyle}
-                name="roll"
-                placeholder="Class Roll"
-                defaultValue={user?.roll}
+                name="name"
+                placeholder="Name"
+                defaultValue={user?.name}
                 className={editMode ? "border-[#3C3F58]" : "border-transparent"}
                 disabled={!editMode}
+                required
               />
+            </div>
+            <div>
+              <label
+                htmlFor="email"
+                className="text-white text-opacity-70 text-[14px] xss:text-[17px]"
+              >
+                Email
+              </label>
+              <input
+                type="email"
+                style={inputStyle}
+                name="email"
+                placeholder="Email"
+                defaultValue={user?.email}
+                className={"border-transparent"}
+                disabled={true}
+              />
+            </div>
+            <div>
+              <label
+                htmlFor="phone"
+                className="text-white text-opacity-70 text-[14px] xss:text-[17px]"
+              >
+                Phone
+              </label>
               <input
                 type="number"
                 style={inputStyle}
-                name="id"
-                placeholder="College ID Number"
-                defaultValue={user?.id}
+                name="phone"
+                placeholder="Phone"
+                defaultValue={user?.phone}
+                className={editMode ? "border-[#3C3F58]" : "border-transparent"}
+                disabled={!editMode}
+                required
+              />
+            </div>
+
+            <div className="flex flex-row gap-4">
+              <div>
+                <label
+                  htmlFor="roll"
+                  className="text-white text-opacity-70 text-[14px] xss:text-[17px]"
+                >
+                  Roll
+                </label>
+                <input
+                  type="number"
+                  style={inputStyle}
+                  name="roll"
+                  placeholder="Class Roll"
+                  defaultValue={user?.roll}
+                  className={
+                    editMode ? "border-[#3C3F58]" : "border-transparent"
+                  }
+                  disabled={!editMode}
+                />
+              </div>
+
+              <div>
+                <label
+                  htmlFor="id"
+                  className="text-white text-opacity-70 text-[14px] xss:text-[17px]"
+                >
+                  College ID No.
+                </label>
+                <input
+                  type="number"
+                  style={inputStyle}
+                  name="id"
+                  placeholder="College ID Number"
+                  defaultValue={user?.id}
+                  className={
+                    editMode ? "border-[#3C3F58]" : "border-transparent"
+                  }
+                  disabled={!editMode}
+                />
+              </div>
+            </div>
+            <div>
+              <label
+                htmlFor="address"
+                className="text-white text-opacity-70 text-[14px] xss:text-[17px]"
+              >
+                Address
+              </label>
+              <input
+                type="text"
+                style={inputStyle}
+                name="address"
+                placeholder="Address"
+                defaultValue={user?.address}
                 className={editMode ? "border-[#3C3F58]" : "border-transparent"}
                 disabled={!editMode}
               />
             </div>
-            <input
-              type="text"
-              style={inputStyle}
-              name="address"
-              placeholder="Address"
-              defaultValue={user?.address}
-              className={editMode ? "border-[#3C3F58]" : "border-transparent"}
-              disabled={!editMode}
-            />
 
             {editMode && (
               <button

@@ -8,9 +8,9 @@ import { FaHeart, FaRegHeart } from "react-icons/fa6";
 import SeeAllButton from "../../Buttons/SeeAllButton";
 
 const PostCard = ({ post }) => {
-  let postedBy = useUser(post?.username);
-  postedBy = postedBy?.[0];
+  const postedBy = useUser(post?.by);
   let location = useLocation();
+  console.log(location)
   location = location?.pathname || "/blog";
   const { user } = useAuth();
 
@@ -31,7 +31,7 @@ const PostCard = ({ post }) => {
 
   return (
     <div
-      className="p-[2px] rounded-[15px] overflow-hidden mb-5"
+      className="p-[2px] rounded-[15px] overflow-hidden mb-5 block max-w-[367px] mx-auto"
       style={{
         background: "linear-gradient(104deg, #2A34D2 0.79%, #7D1FC8 73.82%)",
       }}
@@ -74,10 +74,10 @@ const PostCard = ({ post }) => {
                 />
               </div>
               <div className="flex flex-col items-start">
-                <span className="block text-[#7820C9] text-[18px] font-[400]">
+                <span className="block text-[#7820C9] text-[18px] font-[500]">
                   {postedBy?.[0]?.name}
                 </span>
-                <span className="block text-[#fff] text-opacity-70 text-[14px] font-[300] mt-[-4px]">
+                <span className="block text-[#fff] text-opacity-60 text-[14px] font-[300] mt-[-4px]">
                   {moment(post?.date).format("DD MMM Y [at] hh:mma")}
                 </span>
               </div>
@@ -88,30 +88,31 @@ const PostCard = ({ post }) => {
               {content?.length > 200 ? content?.slice(0, 200) + "..." : content}
             </p>
           </Link>
-          <Link
-            to={`/post/${post?._id}`}
-            state={location}
-            className="text-[#F5154B] flex items-center gap-2 text-[18px] mb-5 mt-auto"
-          >
-            <span className="text-[23px] mt-[-2px] cursor-pointer">
-              {post?.likes?.includes(user?.username) ? (
-                <FaHeart />
-              ) : (
-                <FaRegHeart />
-              )}
-            </span>
-            <span>
-              {post?.likes?.length === 1
-                ? post?.likes?.length + " like"
-                : post?.likes?.length + " likes"}
-            </span>
-          </Link>
 
           {/* Buttons */}
-          <div>
+          <div className="flex flex-row justify-between items-center w-full mt-auto">
+            <Link
+              to={`/post/${post?._id}`}
+              state={location}
+              className="text-[#F5154B] flex items-center gap-2 text-[18px]"
+            >
+              <span className="text-[23px] mt-[-2px] cursor-pointer">
+                {post?.likes?.includes(user?.username) ? (
+                  <FaHeart />
+                ) : (
+                  <FaRegHeart />
+                )}
+              </span>
+              <span>
+                {post?.likes?.length === 1
+                  ? post?.likes?.length + " like"
+                  : post?.likes?.length + " likes"}
+              </span>
+            </Link>
             {/* See all button link */}
             <SeeAllButton
               to={`/post/${post?._id}`}
+              state={location}
               text="Read"
               className="ml-[0px] mt-auto"
             ></SeeAllButton>

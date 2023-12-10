@@ -8,7 +8,7 @@ const Title = ({ children, className = "", secondary = false }) => {
   return (
     <h2
       style={!secondary ? gradientColor : { color: "white" }}
-      className={`block w-fit text-4xl mb-6 font-[600] ${className}`}
+      className={`block w-fit text-3xl xss:text-4xl mb-6 font-[600] ${className}`}
     >
       {children}
     </h2>

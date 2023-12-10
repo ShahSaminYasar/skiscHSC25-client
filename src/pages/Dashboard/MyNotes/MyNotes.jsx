@@ -120,10 +120,12 @@ const MyNotes = () => {
                   key={note?._id}
                   className="text-white text-opacity-80 font-[300] text-[17px] text-center"
                 >
-                  <td>{note?.subject}</td>
+                  <td className="min-w-[150px]">{note?.subject}</td>
                   <td>{note?.chapter}</td>
-                  <td>{note?.topic}</td>
-                  <td>{moment(note?.date).format("DD MMM Y")}</td>
+                  <td className="min-w-[150px]">{note?.topic}</td>
+                  <td className="min-w-[150px]">
+                    {moment(note?.date).format("DD MMM Y")}
+                  </td>
                   <td>{note?.files?.length}</td>
                   <td
                     className={

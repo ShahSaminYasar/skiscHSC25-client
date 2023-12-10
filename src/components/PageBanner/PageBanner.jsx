@@ -8,7 +8,7 @@ const PageBanner = ({ children }) => {
   return (
     <div
       style={bg}
-      className="w-full mb-2 px-3 py-10 md:py-14 text-center text-[50px] text-white font-[400] uppercase"
+      className="w-full mb-2 px-3 py-5 md:py-14 text-center text-[35px] sm:text-[50px] text-white font-[400] uppercase"
     >
       {children}
     </div>
