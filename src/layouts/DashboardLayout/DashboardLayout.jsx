@@ -13,6 +13,7 @@ import {
   FaIdBadge,
   FaListCheck,
   FaPenNib,
+  FaQuestion,
   FaUsers,
 } from "react-icons/fa6";
 import useAuth from "../../hooks/Auth/useAuth";
@@ -79,6 +80,18 @@ const DashboardLayout = () => {
                   }
                 >
                   <FaPenNib /> My Posts
+                </NavLink>
+                <NavLink
+                  to="/dashboard/qna"
+                  className={({ isActive }) =>
+                    `flex flex-row gap-2 items-center px-3 py-[6px] rounded-md ${
+                      isActive
+                        ? "bg-gradient-to-r from-[#1E245A] to-[#261053]"
+                        : "bg-transparent"
+                    }`
+                  }
+                >
+                  <FaQuestion /> QnA
                 </NavLink>
 
                 {(user?.role === "admin" || user?.role === "developer") && (

@@ -5,6 +5,8 @@ import Notes from "./Notes/Notes";
 import Posts from "./Posts/Posts";
 import Stats from "./Stats/Stats";
 import Contact from "./Contact/Contact";
+import QnA from "./QnA/QnA";
+
 
 const Home = () => {
   return (
@@ -17,7 +19,8 @@ const Home = () => {
       <Assignments />
       <Notes />
       <Posts />
-      <Contact/>
+      <QnA/>
+      <Contact />
     </>
   );
 };

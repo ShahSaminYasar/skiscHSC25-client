@@ -22,8 +22,13 @@ const NotificationsDropdown = () => {
         tabIndex={0}
         className="dropdown-content max-h-[300px] overflow-y-auto z-[1] mt-2 w-[200px] xs:w-[240px] xss:w-[350px] p-2 shadow bg-[#02051E] rounded-md border-[2px] border-[#2A34D2] flex flex-col gap-0 items-start text-[18px]"
       >
-        <li>
-          <TitleSM className="mt-[0px] mb-[15px]">Notifications</TitleSM>
+        <li className="w-full flex flex-row gap-1 flex-wrap items-center justify-between mb-[15px]">
+          <TitleSM className="mt-[0px] mb-[0px] leading-[30px]">
+            Notifications
+          </TitleSM>
+          <button className="text-[14px] text-[#2A34D2] font-[400]">
+            Mark all as read
+          </button>
         </li>
         {notificationsState?.isLoading ? (
           <Loader />

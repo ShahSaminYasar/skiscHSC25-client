@@ -44,6 +44,8 @@ import EditPost from "../pages/Dashboard/MyPosts/EditPost";
 import Stats from "../pages/Admin/Stats/Stats";
 import AdminMessages from "../pages/Admin/AdminMessages/AdminMessages";
 import AdminMessage from "../pages/Admin/AdminMessages/AdminMessage";
+import AddQnA from "../pages/QnA/AddQnA";
+import MyQnA from "../pages/Dashboard/MyQnA/MyQnA";
 
 export const router = createBrowserRouter([
   {
@@ -127,7 +129,7 @@ export const router = createBrowserRouter([
         element: <Blog />,
       },
       {
-        path: "qna",
+        path: "qna/:id",
         element: <QnA />,
       },
       {
@@ -186,6 +188,10 @@ export const router = createBrowserRouter([
         path: "edit-post/:id",
         element: <EditPost />,
       },
+      {
+        path: "add-qna",
+        element: <AddQnA/>
+      }
     ],
   },
   {
@@ -211,6 +217,10 @@ export const router = createBrowserRouter([
       {
         path: "my-posts",
         element: <MyPosts />,
+      },
+      {
+        path: "qna",
+        element: <MyQnA />
       },
       {
         path: "stats",

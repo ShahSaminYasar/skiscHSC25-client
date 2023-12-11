@@ -123,13 +123,21 @@ const Header = () => {
                 </li>
               </ul>
             </div>
-            <NotificationsDropdown/>
+            <NotificationsDropdown />
             <UserDropdown />
           </nav>
         </Container>
       </header>
 
-      <header
+      <header className="h-[70px] w-full flex justify-between items-center bg-[#04071F] bg-opacity-70 backdrop-blur-md text-white px-3 mdd:hidden">
+        {/* Logo */}
+        <Link to="/">
+          <h1 className="text-[30px] font-[300] text-white">SKISC HSC25</h1>
+        </Link>
+        <NotificationsDropdown />
+      </header>
+
+      <nav
         className="mdd:hidden fixed bottom-0 left-0 w-full h-[50px] z-[998] rounded-t-xl px-[8px] mdd:px-3 flex flex-row justify-center items-center"
         style={{
           background: "linear-gradient(90deg, #070936 0%, #16002F 100%)",
@@ -311,7 +319,7 @@ const Header = () => {
           </div>
           <UserDropup />
         </div>
-      </header>
+      </nav>
     </>
   );
 };

@@ -39,7 +39,7 @@ const PostCardLG = ({ post, slideState, handleNextSlide, handlePrevSlide }) => {
 
   return (
     <div
-      className="p-[2px] rounded-[15px] overflow-hidden mb-5"
+      className="p-[2px] rounded-[15px] overflow-hidden mb-9"
       style={{
         background: "linear-gradient(104deg, #2A34D2 0.79%, #7D1FC8 73.82%)",
       }}
