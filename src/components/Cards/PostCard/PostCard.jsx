@@ -10,7 +10,6 @@ import SeeAllButton from "../../Buttons/SeeAllButton";
 const PostCard = ({ post }) => {
   const postedBy = useUser(post?.by);
   let location = useLocation();
-  console.log(location)
   location = location?.pathname || "/blog";
   const { user } = useAuth();
 
@@ -31,13 +30,13 @@ const PostCard = ({ post }) => {
 
   return (
     <div
-      className="p-[2px] rounded-[15px] overflow-hidden mb-5 block max-w-[367px] mx-auto"
+      className="w-full p-[2px] rounded-[15px] overflow-hidden mb-5 block max-w-[367px] mx-auto"
       style={{
         background: "linear-gradient(104deg, #2A34D2 0.79%, #7D1FC8 73.82%)",
       }}
     >
-      <div className="h-full bg-[#0D0321] text-white overflow-hidden rounded-[15px] flex flex-col gap-3">
-        {/* Left side [Thumbnail] */}
+      <div className="w-full h-full bg-[#0D0321] text-white overflow-hidden rounded-[15px] flex flex-col gap-3">
+        {/* [Thumbnail] */}
         <Link to={`/post/${post?._id}`} state={location}>
           <img
             src={
@@ -49,7 +48,7 @@ const PostCard = ({ post }) => {
           />
         </Link>
 
-        {/* Right side [Text content] */}
+        {/* [Text content] */}
         <div className="h-full px-5 pb-5 flex flex-col gap-3">
           <Link
             to={`/post/${post?._id}`}

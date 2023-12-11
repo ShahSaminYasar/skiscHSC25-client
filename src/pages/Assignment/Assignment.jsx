@@ -15,6 +15,7 @@ import moment from "moment";
 import useToast from "../../hooks/Toaster/useToast";
 import { useQueryClient } from "@tanstack/react-query";
 import useAssignments from "../../hooks/GET/useAssignments";
+import Comments from "../../components/Comments/Comments";
 
 const Assignment = () => {
   let location = useLocation();
@@ -27,6 +28,7 @@ const Assignment = () => {
   const { id } = useParams();
   let assignment = useAssignments(id);
   const assignmentState = assignment;
+  const assignmentRefetch = assignment?.refetch;
   assignment = assignment?.data?.[0];
   const axiosSecure = useAxiosSecure();
   const { user } = useAuth();
@@ -182,6 +184,13 @@ const Assignment = () => {
         ) : (
           <NoDataText>No files yet. Feel free to submit a solution.</NoDataText>
         )}
+
+        <Comments
+          comments={assignment?.comments}
+          id={assignment?._id}
+          refetch={assignmentRefetch}
+          type={'assignment'}
+        />
       </Container>
 
       <dialog

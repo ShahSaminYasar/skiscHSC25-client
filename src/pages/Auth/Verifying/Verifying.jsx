@@ -5,7 +5,7 @@ import { Navigate } from "react-router-dom";
 import VerifyingGIF from "../../../assets/verifying.gif";
 
 const Verifying = () => {
-  const { loading, user, logout } = useAuth();
+  const { loading, user } = useAuth();
 
   if (loading) return <LoaderPage />;
 
@@ -41,7 +41,6 @@ const Verifying = () => {
       >
         <LuRefreshCw /> Refresh
       </button>
-      <button className="btn btn-error" onClick={logout}>Logout</button>
     </section>
   );
 };

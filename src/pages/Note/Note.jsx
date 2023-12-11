@@ -11,6 +11,7 @@ import useAuth from "../../hooks/Auth/useAuth";
 import moment from "moment";
 import useNotes from "../../hooks/GET/useNotes";
 import useUser from "../../hooks/GET/useUser";
+import Comments from "../../components/Comments/Comments";
 
 const Note = () => {
   let location = useLocation();
@@ -23,6 +24,7 @@ const Note = () => {
   const { id } = useParams();
   let note = useNotes(null, id);
   const noteState = note;
+  const noteRefetch = note?.refetch;
   note = note?.data?.[0];
   const { user } = useAuth();
 
@@ -132,6 +134,12 @@ const Note = () => {
         ) : (
           <NoDataText>No files were provided for this note.</NoDataText>
         )}
+        <Comments
+          comments={note?.comments}
+          id={note?._id}
+          refetch={noteRefetch}
+          type={`note`}
+        />
       </Container>
     </section>
   );

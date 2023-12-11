@@ -15,6 +15,7 @@ import {
 } from "react-icons/fa6";
 import { GiVote } from "react-icons/gi";
 import UserDropup from "../../../components/UserDropup/UserDropup";
+import NotificationsDropdown from "../../../components/NotificationsDropdown/NotificationsDropdown";
 
 const Header = () => {
   const navlinks = [
@@ -122,6 +123,7 @@ const Header = () => {
                 </li>
               </ul>
             </div>
+            <NotificationsDropdown/>
             <UserDropdown />
           </nav>
         </Container>

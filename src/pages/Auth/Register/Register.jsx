@@ -224,6 +224,7 @@ const Register = () => {
             <div className="rounded-md p-3 border-md bg-[#0B0F2E] border-[3px] border-[#3C3F58]">
               <input
                 type="file"
+                accept="image/*"
                 className="transition-none text-white"
                 {...register("dp")}
               />

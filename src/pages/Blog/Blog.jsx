@@ -15,10 +15,10 @@ import useToast from "../../hooks/Toaster/useToast";
 import useAxiosSecure from "../../hooks/Axios/useAxiosSecure";
 import DPName from "../../components/ProfileCard/DPName";
 import TitleSM from "../../components/Title/TitleSM";
+import Comments from "../../components/Comments/Comments";
 
 const Blog = () => {
   let location = useLocation();
-  console.log(location)
   location = location?.state || "/dashboard/my-posts";
 
   useEffect(() => {
@@ -94,10 +94,10 @@ const Blog = () => {
           <img
             src={post?.thumbnail}
             alt="Post Thumbnail"
-            className="rounded-md mx-auto w-full h-auto block max-w-[600px] mb-[52px]"
+            className="rounded-md mx-auto w-full h-auto block max-w-[600px] mb-7 md:mb-[52px]"
           />
         )}
-        <h1 className="text-[40px] font-[500] text-white block text-left mb-3">
+        <h1 className="text-[27px] sm:text-[34px] md:text-[40px] font-[400] text-white block text-left mb-3">
           {post?.title}
         </h1>
         {postedBy?.isLoading ? (
@@ -146,6 +146,12 @@ const Blog = () => {
               : post?.likes?.length + " likes"}
           </button>
         </div>
+        <Comments
+          type={`blog`}
+          id={post?._id}
+          comments={post?.comments}
+          refetch={postRefetch}
+        />
       </Container>
 
       <dialog
@@ -160,14 +166,18 @@ const Blog = () => {
             </button>
           </form>
           <TitleSM className="mt-[-10px]">Likes</TitleSM>
-          {post?.likes?.length > 0 ? post?.likes?.map((like) => (
-            <div
-              key={like}
-              className="px-2 py-2 border-b-[1px] border-b-slate-900"
-            >
-              <DPName username={like} />
-            </div>
-          )) : <NoDataText>No likes yet.</NoDataText>}
+          {post?.likes?.length > 0 ? (
+            post?.likes?.map((like) => (
+              <div
+                key={like}
+                className="px-2 py-2 border-b-[1px] border-b-slate-900"
+              >
+                <DPName username={like} />
+              </div>
+            ))
+          ) : (
+            <NoDataText>No likes yet.</NoDataText>
+          )}
         </div>
       </dialog>
     </section>
