@@ -1,11 +1,13 @@
 import moment from "moment";
 import useUser from "../../../hooks/GET/useUser";
 import Loader from "../../Loaders/Loader";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { FaArrowRight } from "react-icons/fa6";
 
 const QnACard = ({ qna }) => {
   const user = useUser(qna?.by);
+  let location = useLocation();
+  location = location?.pathname || "/";
 
   return (
     <div
@@ -42,6 +44,7 @@ const QnACard = ({ qna }) => {
       </p>
       <Link
         to={`/qna/${qna?._id}`}
+        state={location}
         className="mt-auto text-[17px] sm:text-[20px] text-white text-opacity-90 flex items-center gap-1 hover:gap-3 justify-end"
       >
         Answers <FaArrowRight />

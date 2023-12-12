@@ -7,6 +7,7 @@ import Container from "../../layouts/Container/Container";
 import PageBanner from "../../components/PageBanner/PageBanner";
 import NoteCard from "../../components/Cards/NoteCard/NoteCard";
 import { useEffect } from "react";
+import { Helmet } from "react-helmet";
 
 const Notes = () => {
   useEffect(() => {
@@ -28,6 +29,9 @@ const Notes = () => {
 
   return (
     <section className="page">
+      <Helmet>
+        <title>Notes | SKISC HSC 2025</title>
+      </Helmet>
       <PageBanner>NOTES</PageBanner>
       <Container
         className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 justify-between gap-5 py-7 px-3 pb-12`}

@@ -77,7 +77,7 @@ const Blog = () => {
   return (
     <section className="section">
       <Helmet>
-        <title>{post?.title || ""} | SKISC HSC 2025</title>
+        <title>{post?.title || "Blog"} | SKISC HSC 2025</title>
       </Helmet>
       <Container>
         <div className="flex flex-row justify-between items-center gap-10 flex-wrap-wrap mb-[15px]">

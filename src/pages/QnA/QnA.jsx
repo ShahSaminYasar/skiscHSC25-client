@@ -1,4 +1,9 @@
-import { Link, useLocation, useParams } from "react-router-dom";
+import {
+  Link,
+  ScrollRestoration,
+  useLocation,
+  useParams,
+} from "react-router-dom";
 import useQnA from "../../hooks/GET/useQnA";
 import LoaderPage from "../../components/Loaders/LoaderPage";
 import NoDataText from "../../components/NoData/NoDataText";
@@ -78,8 +83,9 @@ const QnA = () => {
 
   return (
     <section className="section">
+      <ScrollRestoration />
       <Helmet>
-        <title>{qna?.title || ""} | SKISC HSC 2025</title>
+        <title>{qna?.question || "QnA"} | SKISC HSC 2025</title>
       </Helmet>
       <Container>
         <div className="flex flex-row justify-between items-center gap-10 flex-wrap-wrap mb-[15px]">

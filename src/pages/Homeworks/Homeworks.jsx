@@ -7,6 +7,7 @@ import PageBanner from "../../components/PageBanner/PageBanner";
 import useHomeworks from "../../hooks/GET/useHomeworks";
 import HomeworkCard from "../../components/Cards/HomeworkCard/HomeworkCard";
 import { useEffect } from "react";
+import { Helmet } from "react-helmet";
 
 const Homeworks = () => {
   useEffect(() => {
@@ -28,6 +29,9 @@ const Homeworks = () => {
 
   return (
     <section className="page">
+      <Helmet>
+        <title>Homeworks | SKISC HSC 2025</title>
+      </Helmet>
       <PageBanner>HOMEWORKS</PageBanner>
       <Container
         className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 justify-between gap-5 py-7 px-3 pb-12`}

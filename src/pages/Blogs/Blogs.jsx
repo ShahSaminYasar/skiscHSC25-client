@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet";
 import PostCard from "../../components/Cards/PostCard/PostCard";
 import LoaderPage from "../../components/Loaders/LoaderPage";
 import NoDataText from "../../components/NoData/NoDataText";
@@ -12,6 +13,9 @@ const Blogs = () => {
 
   return (
     <section className="page">
+      <Helmet>
+        <title>Blogs | SKISC HSC 2025</title>
+      </Helmet>
       <PageBanner>BLOG</PageBanner>
       {postsState?.isLoading ? (
         <LoaderPage />

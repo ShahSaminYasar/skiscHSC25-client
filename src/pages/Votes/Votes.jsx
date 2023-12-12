@@ -5,6 +5,7 @@ import useVotes from "../../hooks/GET/useVotes";
 import Container from "../../layouts/Container/Container";
 import PageBanner from "../../components/PageBanner/PageBanner";
 import VoteCard from "../../components/Cards/VoteCard/VoteCard";
+import { Helmet } from "react-helmet";
 
 const Votes = () => {
   let votes = useVotes();
@@ -29,6 +30,9 @@ const Votes = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Voting Zone | SKISC HSC 2025</title>
+      </Helmet>
       <PageBanner>Voting Zone</PageBanner>
       <section className="py-[30px] px-3">
         <Container className={`grid grid-cols-1 md:grid-cols-2 gap-6`}>

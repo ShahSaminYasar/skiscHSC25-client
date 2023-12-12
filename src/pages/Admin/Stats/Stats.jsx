@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import LoaderDiv from "../../../components/Loaders/LoaderDiv";
 import NoDataText from "../../../components/NoData/NoDataText";
+import { Helmet } from "react-helmet";
 
 const Stats = () => {
   const toast = useToast;
@@ -151,213 +152,222 @@ const Stats = () => {
   };
 
   return (
-    <section className="flex flex-col gap-5">
-      <div className="p-5 bg-[#020526] rounded-md border-2 border-slate-800">
-        <Title classNmae="flex-1">College Open/Close Date (Special)</Title>
-        <div className="flex flex-row flex-wrap gap-6">
-          <form onSubmit={handleAddOpenDate}>
-            <label
-              htmlFor="subject"
-              className="text-white text-opacity-70 text-[14px] xss:text-[17px]"
-            >
-              Open Date
-            </label>
-            <div className="flex flex-row gap-1 items-end flex-wrap text-[16px]">
-              <div className="rounded-md p-1 border-md bg-[#0B0F2E] border-[3px] border-[#3C3F58]">
-                <input
-                  type="date"
-                  className="transition-none text-white bg-transparent"
-                  name="date"
-                  required
-                />
-              </div>
-              <button
-                type="submit"
-                className="bg-[#552ACD] text-[16px] px-3 py-2 rounded-md font-[400] active:scale-90"
-                disabled={addingOpenDate}
+    <>
+      <Helmet>
+        <title>Set Updates | SKISC HSC 2025</title>
+      </Helmet>
+      <section className="flex flex-col gap-5">
+        <div className="p-5 bg-[#020526] rounded-md border-2 border-slate-800">
+          <Title classNmae="flex-1">College Open/Close Date (Special)</Title>
+          <div className="flex flex-row flex-wrap gap-6">
+            <form onSubmit={handleAddOpenDate}>
+              <label
+                htmlFor="subject"
+                className="text-white text-opacity-70 text-[14px] xss:text-[17px]"
               >
-                {addingOpenDate ? <Loader /> : "Add"}
-              </button>
-            </div>
-          </form>
-          <form onSubmit={handleAddClosedDate}>
-            <label
-              htmlFor="subject"
-              className="text-white text-opacity-70 text-[14px] xss:text-[17px]"
-            >
-              Closed Date
-            </label>
-            <div className="flex flex-row gap-1 items-end flex-wrap text-[16px]">
-              <div className="rounded-md p-1 border-md bg-[#0B0F2E] border-[3px] border-[#3C3F58]">
-                <input
-                  type="date"
-                  className="transition-none text-white bg-transparent"
-                  name="date"
-                  required
-                />
+                Open Date
+              </label>
+              <div className="flex flex-row gap-1 items-end flex-wrap text-[16px]">
+                <div className="rounded-md p-1 border-md bg-[#0B0F2E] border-[3px] border-[#3C3F58]">
+                  <input
+                    type="date"
+                    className="transition-none text-white bg-transparent"
+                    name="date"
+                    required
+                  />
+                </div>
+                <button
+                  type="submit"
+                  className="bg-[#552ACD] text-[16px] px-3 py-2 rounded-md font-[400] active:scale-90"
+                  disabled={addingOpenDate}
+                >
+                  {addingOpenDate ? <Loader /> : "Add"}
+                </button>
               </div>
-              <button
-                type="submit"
-                className="bg-[#552ACD] text-[16px] px-3 py-2 rounded-md font-[400] active:scale-90"
-                disabled={addingClosedDate}
+            </form>
+            <form onSubmit={handleAddClosedDate}>
+              <label
+                htmlFor="subject"
+                className="text-white text-opacity-70 text-[14px] xss:text-[17px]"
               >
-                {addingClosedDate ? <Loader /> : "Add"}
-              </button>
-            </div>
-          </form>
+                Closed Date
+              </label>
+              <div className="flex flex-row gap-1 items-end flex-wrap text-[16px]">
+                <div className="rounded-md p-1 border-md bg-[#0B0F2E] border-[3px] border-[#3C3F58]">
+                  <input
+                    type="date"
+                    className="transition-none text-white bg-transparent"
+                    name="date"
+                    required
+                  />
+                </div>
+                <button
+                  type="submit"
+                  className="bg-[#552ACD] text-[16px] px-3 py-2 rounded-md font-[400] active:scale-90"
+                  disabled={addingClosedDate}
+                >
+                  {addingClosedDate ? <Loader /> : "Add"}
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
-      </div>
-      <div className="flex flex-col md:flex-row gap-7">
-        <form
-          onSubmit={handleAddTest}
-          className="p-5 bg-[#020526] rounded-md border-2 border-slate-800 flex flex-col gap-2"
-        >
-          <Title className="mb-[0px]">Test</Title>
-          <div>
-            <label
-              htmlFor="subject"
-              className="text-white text-opacity-70 text-[14px] xss:text-[17px]"
-            >
-              Subject
-            </label>
-            <input
-              type="text"
-              style={inputStyle}
-              name="subject"
-              placeholder="Subject"
-              className={"border-[#3C3F58]"}
-              disabled={addingTest}
-              required
-            />
-          </div>
-          <div>
-            <label
-              htmlFor="chapter"
-              className="text-white text-opacity-70 text-[14px] xss:text-[17px]"
-            >
-              Chapter
-            </label>
-            <input
-              type="text"
-              style={inputStyle}
-              name="chapter"
-              placeholder="Chapter"
-              className={"border-[#3C3F58]"}
-              disabled={addingTest}
-              required
-            />
-          </div>
-          <div>
-            <label
-              htmlFor="topic"
-              className="text-white text-opacity-70 text-[14px] xss:text-[17px]"
-            >
-              Topic
-            </label>
-            <input
-              type="text"
-              style={inputStyle}
-              name="topic"
-              placeholder="Topic"
-              className={"border-[#3C3F58]"}
-              disabled={addingTest}
-              required
-            />
-          </div>
-          <div>
-            <label
-              htmlFor="subject"
-              className="text-white text-opacity-70 text-[14px] xss:text-[17px]"
-            >
-              Date
-            </label>
-            <div className="rounded-md p-3 border-md bg-[#0B0F2E] border-[3px] border-[#3C3F58]">
+        <div className="flex flex-col md:flex-row gap-7">
+          <form
+            onSubmit={handleAddTest}
+            className="p-5 bg-[#020526] rounded-md border-2 border-slate-800 flex flex-col gap-2"
+          >
+            <Title className="mb-[0px]">Test</Title>
+            <div>
+              <label
+                htmlFor="subject"
+                className="text-white text-opacity-70 text-[14px] xss:text-[17px]"
+              >
+                Subject
+              </label>
               <input
-                type="date"
-                className="transition-none text-white bg-transparent"
-                defaultValue={moment().add(1, "d").format("YYYY-MM-DD")}
-                name="date"
+                type="text"
+                style={inputStyle}
+                name="subject"
+                placeholder="Subject"
+                className={"border-[#3C3F58]"}
+                disabled={addingTest}
                 required
               />
             </div>
-          </div>
-          <button type="submit" className="btn buttonTwo" disabled={addingTest}>
-            {addingTest ? <Loader /> : "Add Test"}
-          </button>
-        </form>
-        {testsState?.isLoading ? (
-          <LoaderDiv />
-        ) : testsState?.error ? (
-          <NoDataText>An error occured while fetching the data.</NoDataText>
-        ) : tests?.length > 0 ? (
-          <div className="overflow-x-auto">
-            <table className="table w-full">
-              {/* head */}
-              <thead
-                style={{
-                  background:
-                    "linear-gradient(91deg, #1E245A 0%, #261053 100%)",
-                }}
-                className="text-[18px] md:text-[19px] text-white font-[300]"
+            <div>
+              <label
+                htmlFor="chapter"
+                className="text-white text-opacity-70 text-[14px] xss:text-[17px]"
               >
-                <tr>
-                  <td className="rounded-l-[5px]">Details</td>
-                  <td>Date</td>
-                  <td className="rounded-r-[5px] text-center">Actions</td>
-                </tr>
-              </thead>
-              <tbody className="bg-[#080821]">
-                {tests?.map((test) => (
-                  <tr
-                    key={test?._id}
-                    className="text-white text-opacity-80 font-[300] text-[17px]"
-                  >
-                    <td className="min-w-[200px]">
-                      <div className="text-[16px] opacity-80 mb-1">
-                        Subject: {test?.subject}
-                      </div>
-                      <div className="text-[16px] opacity-80">
-                        Chapter: {test?.chapter}
-                      </div>
-                      <div className="text-[16px] opacity-80 mt-1">
-                        Topic: {test?.topic || "Address not provided"}
-                      </div>
-                    </td>
-                    <td className="min-w-[100px]">
-                      {moment(test.date).format("DD MMM Y")}
-                    </td>
-                    <td>
-                      <div className="grid grid-cols-1 gap-1 items-center justify-center w-full max-w-[90px] mx-auto">
-                        <Link
-                          to={`/test/${test?._id}`}
-                          className="btn btn-sm font-[400]"
-                        >
-                          View
-                        </Link>
-                        <Link
-                          to={`/edit-test/${test?._id}`}
-                          className="btn btn-sm font-[400]"
-                        >
-                          Edit
-                        </Link>
-                        <button
-                          className="btn btn-sm bg-[#531019] hover:bg-[#ff2f2f] text-[#ce3a3a] hover:text-[#dccaff] text-opacity-90 font-[500]"
-                          onClick={() => handleDeleteTest(test?._id)}
-                        >
-                          Delete
-                        </button>
-                      </div>
-                    </td>
+                Chapter
+              </label>
+              <input
+                type="text"
+                style={inputStyle}
+                name="chapter"
+                placeholder="Chapter"
+                className={"border-[#3C3F58]"}
+                disabled={addingTest}
+                required
+              />
+            </div>
+            <div>
+              <label
+                htmlFor="topic"
+                className="text-white text-opacity-70 text-[14px] xss:text-[17px]"
+              >
+                Topic
+              </label>
+              <input
+                type="text"
+                style={inputStyle}
+                name="topic"
+                placeholder="Topic"
+                className={"border-[#3C3F58]"}
+                disabled={addingTest}
+                required
+              />
+            </div>
+            <div>
+              <label
+                htmlFor="subject"
+                className="text-white text-opacity-70 text-[14px] xss:text-[17px]"
+              >
+                Date
+              </label>
+              <div className="rounded-md p-3 border-md bg-[#0B0F2E] border-[3px] border-[#3C3F58]">
+                <input
+                  type="date"
+                  className="transition-none text-white bg-transparent"
+                  defaultValue={moment().add(1, "d").format("YYYY-MM-DD")}
+                  name="date"
+                  required
+                />
+              </div>
+            </div>
+            <button
+              type="submit"
+              className="btn buttonTwo"
+              disabled={addingTest}
+            >
+              {addingTest ? <Loader /> : "Add Test"}
+            </button>
+          </form>
+          {testsState?.isLoading ? (
+            <LoaderDiv />
+          ) : testsState?.error ? (
+            <NoDataText>An error occured while fetching the data.</NoDataText>
+          ) : tests?.length > 0 ? (
+            <div className="overflow-x-auto">
+              <table className="table w-full">
+                {/* head */}
+                <thead
+                  style={{
+                    background:
+                      "linear-gradient(91deg, #1E245A 0%, #261053 100%)",
+                  }}
+                  className="text-[18px] md:text-[19px] text-white font-[300]"
+                >
+                  <tr>
+                    <td className="rounded-l-[5px]">Details</td>
+                    <td>Date</td>
+                    <td className="rounded-r-[5px] text-center">Actions</td>
                   </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        ) : (
-          <NoDataText>No tests have been added.</NoDataText>
-        )}
-      </div>
-    </section>
+                </thead>
+                <tbody className="bg-[#080821]">
+                  {tests?.map((test) => (
+                    <tr
+                      key={test?._id}
+                      className="text-white text-opacity-80 font-[300] text-[17px]"
+                    >
+                      <td className="min-w-[200px]">
+                        <div className="text-[16px] opacity-80 mb-1">
+                          Subject: {test?.subject}
+                        </div>
+                        <div className="text-[16px] opacity-80">
+                          Chapter: {test?.chapter}
+                        </div>
+                        <div className="text-[16px] opacity-80 mt-1">
+                          Topic: {test?.topic || "Address not provided"}
+                        </div>
+                      </td>
+                      <td className="min-w-[100px]">
+                        {moment(test.date).format("DD MMM Y")}
+                      </td>
+                      <td>
+                        <div className="grid grid-cols-1 gap-1 items-center justify-center w-full max-w-[90px] mx-auto">
+                          <Link
+                            to={`/test/${test?._id}`}
+                            className="btn btn-sm font-[400]"
+                          >
+                            View
+                          </Link>
+                          <Link
+                            to={`/edit-test/${test?._id}`}
+                            className="btn btn-sm font-[400]"
+                          >
+                            Edit
+                          </Link>
+                          <button
+                            className="btn btn-sm bg-[#531019] hover:bg-[#ff2f2f] text-[#ce3a3a] hover:text-[#dccaff] text-opacity-90 font-[500]"
+                            onClick={() => handleDeleteTest(test?._id)}
+                          >
+                            Delete
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          ) : (
+            <NoDataText>No tests have been added.</NoDataText>
+          )}
+        </div>
+      </section>
+    </>
   );
 };
 export default Stats;
