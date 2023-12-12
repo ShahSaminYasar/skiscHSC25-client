@@ -6,7 +6,7 @@ const PrimaryLayout = () => {
   return (
     <>
       <Header />
-      <div className="h-[70px] bg-[#010e0d]"></div>
+      <div className="h-[60px] mdd:h-[70px] bg-[#010e0d]"></div>
       <main>
         <Outlet />
       </main>

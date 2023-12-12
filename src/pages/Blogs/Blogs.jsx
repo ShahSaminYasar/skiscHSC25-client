@@ -5,8 +5,13 @@ import NoDataText from "../../components/NoData/NoDataText";
 import PageBanner from "../../components/PageBanner/PageBanner";
 import usePosts from "../../hooks/GET/usePosts";
 import Container from "../../layouts/Container/Container";
+import { useEffect } from "react";
 
 const Blogs = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   let posts = usePosts(null, null, false);
   const postsState = posts;
   posts = posts?.data;
