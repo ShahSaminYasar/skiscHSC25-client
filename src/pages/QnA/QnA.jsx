@@ -85,7 +85,7 @@ const QnA = () => {
     <section className="section bg-[#010313]">
       <ScrollRestoration />
       <Helmet>
-        <title>{qna?.question || "QnA"} | SKISC HSC 2025</title>
+        <title>{qna?.question?.slice(0, 35) || "QnA"} | SKISC HSC 2025</title>
       </Helmet>
       <Container>
         <div className="flex flex-row justify-between items-center gap-10 flex-wrap-wrap mb-[15px]">

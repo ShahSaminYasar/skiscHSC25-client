@@ -22,7 +22,7 @@ const Questions = () => {
   if (qnas?.length === 0) return;
 
   return (
-    <section className="section">
+    <section className="section bg-[#010313]">
       <ScrollRestoration />
       <Container>
         <Title>QnA</Title>
