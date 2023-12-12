@@ -47,6 +47,7 @@ import MyQnA from "../pages/Dashboard/MyQnA/MyQnA";
 import Questions from "../pages/Home/QnA/Questions";
 import AddVote from "../pages/Votes/AddVote";
 import MyVotes from "../pages/Dashboard/MyVotes/MyVotes";
+import Error from "../pages/Error/Error";
 
 export const router = createBrowserRouter([
   {
@@ -87,6 +88,7 @@ export const router = createBrowserRouter([
   },
   {
     path: "/",
+    errorElement: <Error />,
     element: (
       <PrivateRoute>
         <PrimaryLayout />

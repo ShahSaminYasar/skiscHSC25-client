@@ -34,7 +34,7 @@ const Votes = () => {
         <title>Voting Zone | SKISC HSC 2025</title>
       </Helmet>
       <PageBanner>Voting Zone</PageBanner>
-      <section className="py-[30px] px-3">
+      <section className="py-[30px] px-3 bg-[#010313]">
         <Container className={`grid grid-cols-1 md:grid-cols-2 gap-6`}>
           {votes?.map((vote) => (
             <VoteCard key={vote?._id} vote={vote} refetch={votesRefetch} />

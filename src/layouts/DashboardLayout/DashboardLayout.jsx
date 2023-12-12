@@ -32,7 +32,7 @@ const DashboardLayout = () => {
               type="checkbox"
               className="drawer-toggle"
             />
-            <div className="drawer-content flex flex-col items-start justify-start px-5 py-3 pb-12">
+            <div className="drawer-content flex flex-col items-start justify-start px-5 py-3 pb-12 bg-[#010313] min-h-[90vh]">
               {/* Page content here */}
               <Outlet />
             </div>

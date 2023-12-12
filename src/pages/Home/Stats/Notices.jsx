@@ -3,7 +3,7 @@ import NoDataText from "../../../components/NoData/NoDataText";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css/pagination";
-import { Link, useLocation } from "react-router-dom";
+// import { Link, useLocation } from "react-router-dom";
 import moment from "moment";
 import "./vertical-slider.css";
 import useTests from "../../../hooks/GET/useTests";
@@ -13,8 +13,8 @@ const Notices = () => {
   const testsState = tests;
   tests = tests?.data;
 
-  let location = useLocation();
-  location = location?.pathname || "/";
+  // let location = useLocation();
+  // location = location?.pathname || "/";
 
   return (
     <>
@@ -44,16 +44,28 @@ const Notices = () => {
         >
           {tests?.map((test) => (
             <SwiperSlide key={test?._id}>
-              <Link
-                to={`/test/${test?._id}`}
-                state={location}
+              <div
+                // to={`/test/${test?._id}`}
+                // state={location}
                 className="text-[16px] xss:text-[18px] sm:text-[19px] text-[#00ECA5] text-opacity-80"
               >
-                <span className="font-[600]">WT</span> {test?.subject} - Chapter {test?.chapter}
-                <span className="block text-[#00ECA5] text-opacity-60 text-[14px] xss:text-[16px] sm:text-[17px]">
-                  on {moment(test?.date).format("DD MMM Y")}
-                </span>
-              </Link>
+                {test?.subject ? (
+                  <>
+                    <span className="font-[600]">WT</span> {test?.subject} -
+                    Chapter {test?.chapter}
+                    <span className="block text-[#00ECA5] text-opacity-60 text-[14px] xss:text-[16px] sm:text-[17px]">
+                      on {moment(test?.date).format("DD MMM Y")}
+                    </span>
+                  </>
+                ) : (
+                  <>
+                    <span className="font-[400]">{test?.topic}</span>
+                    <span className="block text-[#00ECA5] text-opacity-60 text-[14px] xss:text-[16px] sm:text-[17px]">
+                      Date: {moment(test?.date).format("DD MMM Y")}
+                    </span>
+                  </>
+                )}
+              </div>
             </SwiperSlide>
           ))}
         </Swiper>

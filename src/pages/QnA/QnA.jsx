@@ -82,7 +82,7 @@ const QnA = () => {
   };
 
   return (
-    <section className="section">
+    <section className="section bg-[#010313]">
       <ScrollRestoration />
       <Helmet>
         <title>{qna?.question || "QnA"} | SKISC HSC 2025</title>
