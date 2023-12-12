@@ -8,6 +8,7 @@ import { useRef, useState } from "react";
 import Title from "../../../components/Title/Title";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
 import QnACard from "../../../components/Cards/QnACard/QnACard";
+import SeeAllButton from "../../../components/Buttons/SeeAllButton";
 
 const QnA = () => {
   let qnas = useQnA();
@@ -62,7 +63,7 @@ const QnA = () => {
                 }}
                 breakpoints={{
                   700: {
-                    slidesPerView: 2,
+                    slidesPerView: qnas?.length > 1 ? 2 : 1,
                     spaceBetween: 25,
                   },
                 }}
@@ -95,6 +96,7 @@ const QnA = () => {
                 </button>
               </div>
             </div>
+            <SeeAllButton to={`/questions`} className="ml-auto" />
           </Container>
         )
       )}

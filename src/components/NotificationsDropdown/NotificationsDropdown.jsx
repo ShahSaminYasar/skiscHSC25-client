@@ -3,15 +3,39 @@ import useNotifications from "../../hooks/GET/useNotifications";
 import Loader from "../Loaders/Loader";
 import NoDataText from "../NoData/NoDataText";
 import TitleSM from "../Title/TitleSM";
-import { FaBell } from "react-icons/fa6";
+import { FaBell, FaCheckDouble } from "react-icons/fa6";
+import { LuRefreshCw } from "react-icons/lu";
+import useAuth from "../../hooks/Auth/useAuth";
+import useAxiosSecure from "../../hooks/Axios/useAxiosSecure";
+import useToast from "../../hooks/Toaster/useToast";
 
 const NotificationsDropdown = () => {
   let notifications = useNotifications();
   const notificationsState = notifications;
+  const notificationsRefetch = notifications?.refetch;
   notifications = notifications?.data;
+
+  const { user } = useAuth();
+  const axiosSecure = useAxiosSecure();
+  const toast = useToast;
 
   let location = useLocation();
   location = location?.pathname || "/";
+
+  const handleDeleteNotifications = async () => {
+    const result = await axiosSecure.delete(
+      `/notifications?username=${user?.username}`
+    );
+    if (result?.data?.message === "success") {
+      notificationsRefetch();
+    } else {
+      return toast(
+        result?.data?.message ||
+          "An error occured while clearing notifications. Please try again.",
+        "error"
+      );
+    }
+  };
 
   return (
     <div className="dropdown dropdown-end">
@@ -26,9 +50,20 @@ const NotificationsDropdown = () => {
           <TitleSM className="mt-[0px] mb-[0px] leading-[30px]">
             Notifications
           </TitleSM>
-          <button className="text-[14px] text-[#2A34D2] font-[400]">
-            Mark all as read
-          </button>
+          <div className="flex gap-5 text-[20px] text-opacity-70 flex-row-reverse">
+            <button
+              onClick={() => notificationsRefetch()}
+              className="text-white text-opacity-40"
+            >
+              <LuRefreshCw />
+            </button>
+            <button
+              onClick={handleDeleteNotifications}
+              className="text-[#00ECA5]"
+            >
+              <FaCheckDouble />
+            </button>
+          </div>
         </li>
         {notificationsState?.isLoading ? (
           <Loader />

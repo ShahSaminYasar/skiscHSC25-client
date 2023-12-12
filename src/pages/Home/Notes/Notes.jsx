@@ -12,6 +12,7 @@ import NoteCard from "../../../components/Cards/NoteCard/NoteCard";
 
 import "swiper/css/effect-coverflow";
 import SeeAllButton from "../../../components/Buttons/SeeAllButton";
+import { Link } from "react-router-dom";
 
 const Notes = () => {
   let notes = useNotes(null, null, 5);
@@ -49,7 +50,7 @@ const Notes = () => {
           <LoaderDiv />
         ) : notesState?.error ? (
           <NoDataText className="text-red-500">{notesState?.error}</NoDataText>
-        ) : (
+        ) : notes?.length > 0 ? (
           <>
             <div className="px-0 flex flex-row gap-3 justify-between items-center">
               <button
@@ -74,11 +75,12 @@ const Notes = () => {
                 spaceBetween={10}
                 breakpoints={{
                   640: {
-                    slidesPerView: 2,
+                    slidesPerView: notes?.length > 1 ? 2 : 1,
                     spaceBetween: 30,
                   },
                   900: {
-                    slidesPerView: 3,
+                    slidesPerView:
+                      notes?.length > 2 ? 3 : notes?.length > 1 ? 2 : 1,
                     spaceBetween: 50,
                   },
                 }}
@@ -108,6 +110,10 @@ const Notes = () => {
             </div>
             <SeeAllButton to={`/notes`} className="ml-auto" />
           </>
+        ) : (
+          <NoDataText>
+            No notes yet, wanna <Link to={`/add-note`}>post yours?</Link>
+          </NoDataText>
         )}
       </Container>
     </section>

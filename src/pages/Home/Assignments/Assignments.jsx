@@ -60,15 +60,27 @@ const Assignments = () => {
                 <FaChevronLeft />
               </button>
               <Swiper
-                slidesPerView={2}
+                slidesPerView={assignments?.length > 1 ? 2 : 1}
                 spaceBetween={10}
                 breakpoints={{
                   710: {
-                    slidesPerView: 3,
+                    slidesPerView:
+                      assignments?.length > 2
+                        ? 3
+                        : assignments?.length > 1
+                        ? 2
+                        : 1,
                     spaceBetween: 10,
                   },
                   1024: {
-                    slidesPerView: 4,
+                    slidesPerView:
+                      assignments?.length > 3
+                        ? 4
+                        : assignments?.length > 2
+                        ? 3
+                        : assignments?.length > 1
+                        ? 2
+                        : 1,
                     spaceBetween: 10,
                   },
                 }}

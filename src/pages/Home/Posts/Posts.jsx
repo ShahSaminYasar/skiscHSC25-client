@@ -10,6 +10,7 @@ import { useRef, useState } from "react";
 import SeeAllButton from "../../../components/Buttons/SeeAllButton";
 import usePosts from "../../../hooks/GET/usePosts";
 import PostCardLG from "../../../components/Cards/PostCardLG/PostCardLG";
+import { Link } from "react-router-dom";
 
 const Posts = () => {
   let posts = usePosts(null, null, false, 5);
@@ -42,7 +43,7 @@ const Posts = () => {
           <LoaderDiv />
         ) : postsState?.error ? (
           <NoDataText className="text-red-500">{postsState?.error}</NoDataText>
-        ) : (
+        ) : posts?.length > 0 ? (
           <>
             <div className="px-0 relative w-full max-w-[400px] sm:max-w-[850px] mx-auto">
               <Swiper
@@ -76,6 +77,10 @@ const Posts = () => {
             </div>
             <SeeAllButton to={`/blog`} className="ml-auto" />
           </>
+        ) : (
+          <NoDataText>
+            No post yet, wanna <Link to={`/add-post`}>make a post?</Link>
+          </NoDataText>
         )}
       </Container>
     </section>

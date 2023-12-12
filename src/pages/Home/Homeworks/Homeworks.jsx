@@ -49,7 +49,7 @@ const Homeworks = () => {
           <NoDataText className="text-red-500">
             {homeworksState?.error}
           </NoDataText>
-        ) : (
+        ) : homeworks?.length > 0 ? (
           <>
             <div className="px-0 flex flex-row gap-1 justify-between items-center">
               <button
@@ -60,15 +60,23 @@ const Homeworks = () => {
                 <FaChevronLeft />
               </button>
               <Swiper
-                slidesPerView={2}
+                slidesPerView={homeworks?.length > 1 ? 2 : 1}
                 spaceBetween={10}
                 breakpoints={{
                   710: {
-                    slidesPerView: 3,
+                    slidesPerView:
+                      homeworks?.length > 2 ? 3 : homeworks?.length > 1 ? 2 : 1,
                     spaceBetween: 10,
                   },
                   1024: {
-                    slidesPerView: 4,
+                    slidesPerView:
+                      homeworks?.length > 3
+                        ? 4
+                        : homeworks?.length > 2
+                        ? 3
+                        : homeworks?.length > 1
+                        ? 2
+                        : 1,
                     spaceBetween: 10,
                   },
                 }}
@@ -94,6 +102,8 @@ const Homeworks = () => {
             </div>
             <SeeAllButton to={`/homeworks`} className="ml-auto" />
           </>
+        ) : (
+          <NoDataText>Wohoo! No upcoming homeworks.</NoDataText>
         )}
       </Container>
     </section>

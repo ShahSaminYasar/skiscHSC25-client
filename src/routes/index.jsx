@@ -46,6 +46,9 @@ import AdminMessages from "../pages/Admin/AdminMessages/AdminMessages";
 import AdminMessage from "../pages/Admin/AdminMessages/AdminMessage";
 import AddQnA from "../pages/QnA/AddQnA";
 import MyQnA from "../pages/Dashboard/MyQnA/MyQnA";
+import Questions from "../pages/Home/QnA/Questions";
+import AddVote from "../pages/Votes/AddVote";
+import MyVotes from "../pages/Dashboard/MyVotes/MyVotes";
 
 export const router = createBrowserRouter([
   {
@@ -133,12 +136,20 @@ export const router = createBrowserRouter([
         element: <QnA />,
       },
       {
+        path: "questions",
+        element: <Questions />,
+      },
+      {
         path: "requests",
         element: <Requests />,
       },
       {
         path: "votes",
         element: <Votes />,
+      },
+      {
+        path: "add-vote",
+        element: <AddVote />,
       },
       {
         path: "add-homework",
@@ -190,8 +201,8 @@ export const router = createBrowserRouter([
       },
       {
         path: "add-qna",
-        element: <AddQnA/>
-      }
+        element: <AddQnA />,
+      },
     ],
   },
   {
@@ -220,7 +231,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "qna",
-        element: <MyQnA />
+        element: <MyQnA />,
       },
       {
         path: "stats",
@@ -269,6 +280,10 @@ export const router = createBrowserRouter([
             <Posts />
           </AdminRoute>
         ),
+      },
+      {
+        path: "my-votes",
+        element: <MyVotes />,
       },
       {
         path: "messages",

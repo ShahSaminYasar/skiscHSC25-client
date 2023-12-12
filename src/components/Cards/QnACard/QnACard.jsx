@@ -9,7 +9,7 @@ const QnACard = ({ qna }) => {
 
   return (
     <div
-      className="p-5 rounded-[15px] overflow-hidden mb-10"
+      className="p-5 rounded-[15px] overflow-hidden mb-10 flex flex-col gap-0"
       style={{
         background: "linear-gradient(104deg, #2A34D2 0.79%, #7D1FC8 73.82%)",
       }}
@@ -35,14 +35,14 @@ const QnACard = ({ qna }) => {
           </span>
         </div>
       )}
-      <p className="text-[17px] sm:text-[20px] text-white text-opacity-90 text-left my-8">
+      <p className="text-[17px] sm:text-[20px] text-white text-opacity-90 text-left my-4">
         {qna?.question?.length > 200
           ? qna?.question?.slice(0, 200) + "..."
           : qna?.question}
       </p>
       <Link
         to={`/qna/${qna?._id}`}
-        className="text-[17px] sm:text-[20px] text-white text-opacity-90 flex items-center gap-1 hover:gap-3 justify-end"
+        className="mt-auto text-[17px] sm:text-[20px] text-white text-opacity-90 flex items-center gap-1 hover:gap-3 justify-end"
       >
         Answers <FaArrowRight />
       </Link>
