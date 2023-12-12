@@ -130,36 +130,56 @@ const AddNote = () => {
           onSubmit={handlePostNote}
           className="w-full max-w-[647px] mx-auto flex flex-col gap-[13px]"
         >
-          <input
-            type="text"
-            style={inputStyle}
-            name="subject"
-            placeholder="Subject"
-            required
-          />
-          <input
-            type="text"
-            style={inputStyle}
-            name="chapter"
-            placeholder="Chapter"
-            required
-          />
-          <input
-            type="text"
-            style={inputStyle}
-            name="topic"
-            placeholder="Topic"
-            required
-          />
-          <textarea
-            type="text"
-            style={inputStyle}
-            name="description"
-            placeholder="Description"
-            className="min-h-[158px]"
-          ></textarea>
           <div>
-            <label className="block text-[20px] text-white text-opacity-60 mb-2">
+            <label className="block text-[17px] md:text-[20px] text-white text-opacity-60 mb-2">
+              Subject
+            </label>
+            <input
+              type="text"
+              style={inputStyle}
+              name="subject"
+              placeholder="Subject"
+              required
+            />
+          </div>
+          <div>
+            <label className="block text-[17px] md:text-[20px] text-white text-opacity-60 mb-2">
+              Chapter
+            </label>
+            <input
+              type="text"
+              style={inputStyle}
+              name="chapter"
+              placeholder="Chapter"
+              required
+            />
+          </div>
+          <div>
+            <label className="block text-[17px] md:text-[20px] text-white text-opacity-60 mb-2">
+              Topic
+            </label>
+            <input
+              type="text"
+              style={inputStyle}
+              name="topic"
+              placeholder="Topic"
+              required
+            />
+          </div>
+          <div>
+            <label className="block text-[17px] md:text-[20px] text-white text-opacity-60 mb-2">
+              Description
+            </label>
+            <textarea
+              type="text"
+              style={inputStyle}
+              name="description"
+              placeholder="Description about your note"
+              className="min-h-[158px]"
+            ></textarea>
+          </div>
+          <div>
+            <label className="block text-[17px] md:text-[20px] text-white text-opacity-60 mb-2">
               PDF File/Files
             </label>
             <div className="rounded-md p-3 border-md bg-[#0B0F2E] border-[3px] border-[#3C3F58]">

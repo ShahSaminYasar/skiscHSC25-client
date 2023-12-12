@@ -113,7 +113,7 @@ const Note = () => {
               className={`block max-w-[500px] rounded-md p-[2px] my-2`}
             >
               <div
-                className={`bg-[#0E1153] p-3 flex w-full rounded-md flex-row gap-2 items-center justify-between text-[18px] min-h-[80px]`}
+                className={`bg-[#0E1153] p-3 flex w-full rounded-md flex-row gap-2 items-center justify-between text-[18px] min-h-[80px] text-white text-opacity-70`}
               >
                 <div>
                   {file?.name?.length > 36

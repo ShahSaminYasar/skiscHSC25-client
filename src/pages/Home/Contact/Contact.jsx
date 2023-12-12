@@ -28,6 +28,7 @@ const Contact = () => {
       const response = await axiosSecure.post("/messages", { message: data });
       if (response?.data?.message === "success") {
         setSending(false);
+        form.message.value = "";
         return toast("Message sent", "success");
       } else {
         setSending(false);
@@ -93,7 +94,7 @@ const Contact = () => {
             >
               <select
                 name="type"
-                className="bg-[#070B2A] rounded-[12px] p-4 block w-full text-white text-opacity-90"
+                className="bg-[#070B2A] rounded-[12px] p-4 block w-full text-white text-opacity-90 border-none outline-none"
               >
                 <option value="support">Help & Support</option>
                 <option value="request-feature">Request a feature</option>

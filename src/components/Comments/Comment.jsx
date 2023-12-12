@@ -116,7 +116,7 @@ const Comment = ({ comment, type, postId, refetch }) => {
         id={`reply_modal_form_${comment.datetime}`}
         className="modal bg-gradient-to-br from-[#1c227a93] to-[#5d26cc2a] bg-opacity-50"
       >
-        <div className="modal-box ">
+        <div className="modal-box bg-[#010313]">
           <form method="dialog">
             {/* if there is a button in form, it will close the modal */}
             <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">

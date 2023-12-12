@@ -12,7 +12,7 @@ const useVotes = (by, active, limit) => {
   } else if (by && limit) {
     url = `/votes?by=${by}&limit=${limit}`;
   } else if (by) {
-    url = `/votes?by=${by}}`;
+    url = `/votes?by=${by}`;
   } else if (active) {
     url = `/votes?active=${active}`;
   } else if (limit) {

@@ -220,7 +220,7 @@ const Header = () => {
             Assignments
           </NavLink>
           <button
-            className="w-[40px] h-[40px] rounded-full flex flex-col items-center justify-center text-[24px] -translate-y-[15px]text-white text-opacity-90"
+            className="w-[40px] h-[40px] rounded-full flex flex-col items-center justify-center text-[24px] -translate-y-[15px] text-white text-opacity-90"
             style={{
               background: "linear-gradient(290deg, #2E32D2, #7520C9)",
             }}
@@ -337,7 +337,7 @@ const Header = () => {
 
       {/* Show Post Options Modal Button */}
       <button
-        className="w-[50px] h-[50px] rounded-full flex-col items-center justify-center text-[24px] fixed bottom-5 right-5 hidden mdd:flex bg-gradient-to-br from-[#702ed2] to-[#9620c9] border-[2px] border-[#cb2eff] opacity-70 hover:opacity-100 hover:scale-[1.17] hover:-rotate-12 hover:right-7 hover:bottom-7"
+        className="w-[50px] h-[50px] rounded-full flex-col items-center justify-center text-[24px] fixed bottom-5 right-5 hidden mdd:flex bg-gradient-to-br from-[#02030F] to-[#040720] border-[2px] border-[#ffffffbd] opacity-80 hover:opacity-100 hover:scale-[1.17] hover:-rotate-12 hover:right-7 hover:bottom-7"
         onClick={() => document.getElementById("post_modal").showModal()}
       >
         <FaPlus />

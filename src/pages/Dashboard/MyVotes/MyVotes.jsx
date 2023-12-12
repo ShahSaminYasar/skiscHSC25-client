@@ -6,9 +6,12 @@ import LoaderDiv from "../../../components/Loaders/LoaderDiv";
 import useVotes from "../../../hooks/GET/useVotes";
 import Container from "../../../layouts/Container/Container";
 import VoteCard from "../../../components/Cards/VoteCard/VoteCard";
+import useAuth from "../../../hooks/Auth/useAuth";
 
 const MyVotes = () => {
-  let votes = useVotes();
+  const { user } = useAuth();
+
+  let votes = useVotes(user?.username);
   const votesState = votes;
   const votesRefetch = votes?.refetch;
   votes = votes?.data;
@@ -24,7 +27,10 @@ const MyVotes = () => {
   if (votes?.length === 0)
     return (
       <NoDataText>
-        No votes yet, wanna <Link to={`/add-vote`}>launch one?</Link>
+        No votes yet, wanna{" "}
+        <Link to={`/add-vote`} state={`/dashboard/my-votes`}>
+          launch one?
+        </Link>
       </NoDataText>
     );
 

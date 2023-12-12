@@ -114,11 +114,17 @@ const AddQnA = () => {
           onSubmit={handleAddQnA}
           className="w-full max-w-[647px] mx-auto flex flex-col gap-[13px]"
         >
-          <textarea
-            name="question"
-            style={inputStyle}
-            placeholder="Type your question here..."
-          ></textarea>
+          <div>
+            <label className="block text-[17px] md:text-[20px] text-white text-opacity-60 mb-2">
+              Question
+            </label>
+            <textarea
+              name="question"
+              style={inputStyle}
+              placeholder="Type your question here..."
+            ></textarea>
+          </div>
+
           <div>
             <label className="block text-[20px] text-white text-opacity-60 mb-2">
               Image (if any)

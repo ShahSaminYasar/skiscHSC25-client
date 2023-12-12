@@ -206,6 +206,9 @@ const VoteCard = ({ vote, refetch }) => {
             </div>
           );
         })}
+        <span className="block text-[15px] text-[#024ab6] text-opacity-90 font-[400]">
+          Voted by {totalVotes}
+        </span>
         {vote?.by === user?.username && vote?.status === "active" && (
           <button
             className="btn btn-sm bg-red-800 text-white text-opacity-60 w-fit ml-auto"

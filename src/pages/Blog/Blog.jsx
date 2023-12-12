@@ -123,7 +123,9 @@ const Blog = () => {
             </div>
           </div>
         )}
-        <div className="text-[18px] mt-5">{parse(post?.content)}</div>
+        <div className="text-[18px] mt-5 text-white text-opacity-90">
+          {parse(post?.content)}
+        </div>
         <div className="text-[#F5154B] flex items-center gap-2 text-[18px] mt-7">
           <button
             className="text-[23px] mt-[-2px] cursor-pointer"
@@ -158,7 +160,7 @@ const Blog = () => {
         id="likes_modal"
         className="modal bg-gradient-to-br from-[#1c227a93] to-[#5d26cc2a] bg-opacity-50 backdrop-blur-sm"
       >
-        <div className="modal-box max-w-[400px]">
+        <div className="modal-box max-w-[400px] bg-[#010313]">
           <form method="dialog">
             {/* if there is a button in form, it will close the modal */}
             <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">

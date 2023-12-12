@@ -23,6 +23,7 @@
 
 body {
   font-family: "Space Grotesk", sans-serif;
+  overflow-x: hidden;
 }
 
 h1,
@@ -35,12 +36,21 @@ span {
   user-select: none;
 }
 
+p > a {
+  color: #252ebf;
+}
+
+input {
+  width: 100%;
+}
+
 .page {
   background-color: #010313;
   min-height: 100vh;
 }
 
 .pageCenter {
+  width: 100%;
   background-color: #010313;
   min-height: 100vh;
   display: flex;
@@ -52,6 +62,7 @@ span {
 .section {
   width: 100%;
   padding: 70px 12px;
+  overflow-x: hidden;
 }
 @media screen and (max-width: 850px) {
   .section {

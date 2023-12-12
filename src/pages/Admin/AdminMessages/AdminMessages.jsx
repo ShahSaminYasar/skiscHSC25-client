@@ -6,11 +6,16 @@ import NoDataText from "../../../components/NoData/NoDataText";
 import moment from "moment";
 import { Link } from "react-router-dom";
 import DPName from "../../../components/ProfileCard/DPName";
+import { useEffect } from "react";
 
 const AdminMessages = () => {
   let messages = useMessagesToAdmin();
   const messagesState = messages;
   messages = messages?.data;
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <section className="w-full bg-[#010313]">

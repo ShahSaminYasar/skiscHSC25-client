@@ -13,7 +13,7 @@ const useMessagesToAdmin = (id, limit) => {
   }
 
   const { data, isLoading, isError, error, refetch } = useQuery({
-    queryKey: ["getMessagesToAdmin"],
+    queryKey: ["getMessagesToAdmin", id, limit],
     queryFn: () => axiosSecure.get(url),
   });
 

@@ -7,8 +7,13 @@ import BGGFX from "../../../assets/bg-graphics.jpg";
 import DPName from "../../../components/ProfileCard/DPName";
 import moment from "moment";
 import { FaChevronLeft } from "react-icons/fa6";
+import { useEffect } from "react";
 
 const AdminMessage = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const { id } = useParams();
 
   let message = useMessagesToAdmin(id);
@@ -39,13 +44,15 @@ const AdminMessage = () => {
           }}
           className="block w-full max-w-md mx-auto my-10"
         >
-          <div className="bg-[#6126CB] bg-opacity-40 backdrop-blur-sm rounded-[10px] p-5 text-white text-[18px] flex flex-col gap-3 items-start">
+          <div className="bg-[#1B0B47] bg-opacity-70 backdrop-blur-sm rounded-[10px] p-5 text-white text-[18px] flex flex-col gap-3 items-start">
             <DPName
               username={message?.from}
               textStyle="text-[18px] text-white"
             />
             <span>{moment(message?.date).format("DD MMM Y [at] hh:mma")}</span>
-            <span>Regarding: {message?.topic}</span>
+            <span>
+              Regarding: {message?.type.split("-").join(" ").toUpperCase()}
+            </span>
             <span>{message?.message}</span>
           </div>
         </div>

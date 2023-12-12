@@ -11,7 +11,7 @@ import Loader from "../../components/Loaders/Loader";
 
 const AddVote = () => {
   let location = useLocation();
-  location = location?.pathname || "/dashboard/my-votes";
+  location = location?.state || "/dashboard/my-votes";
 
   const axiosSecure = useAxiosSecure();
   const toast = useToast;

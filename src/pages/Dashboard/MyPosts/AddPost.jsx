@@ -115,21 +115,31 @@ const AddPost = () => {
           onSubmit={handleMakePost}
           className="w-full max-w-[647px] mx-auto flex flex-col gap-[13px]"
         >
-          <input
-            type="text"
-            style={inputStyle}
-            name="title"
-            placeholder="Title"
-            required
-          />
-
-          <JoditEditor
-            value={content}
-            onBlur={(newContent) => setContent(newContent)}
-          />
+          <div>
+            <label className="block text-[17px] md:text-[20px] text-white text-opacity-60 mb-2">
+              Title
+            </label>
+            <input
+              type="text"
+              style={inputStyle}
+              name="title"
+              placeholder="Title"
+              required
+            />
+          </div>
 
           <div>
-            <label className="block text-[20px] text-white text-opacity-60 mb-2">
+            <label className="block text-[17px] md:text-[20px] text-white text-opacity-60 mb-2">
+              Content
+            </label>
+            <JoditEditor
+              value={content}
+              onBlur={(newContent) => setContent(newContent)}
+            />
+          </div>
+
+          <div>
+            <label className="block text-[17px] md:text-[20px] text-white text-opacity-60 mb-2">
               Thubmbail
             </label>
             <div className="rounded-md p-3 border-md bg-[#0B0F2E] border-[3px] border-[#3C3F58]">

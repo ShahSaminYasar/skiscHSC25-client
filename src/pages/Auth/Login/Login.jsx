@@ -119,7 +119,7 @@ const Login = () => {
           <div className="flex flex-col gap-4">
             <button
               type="submit"
-              className="btn w-full bg-gradient-to-r hover:bg-gradient-to-l from-[#2B33D2] to-[#7D1FC8] rounded-[10px] text-[23px] text-white font-[400] p-[8px] disabled:from-[#0F0C36] disabled:to-[#0F0C36]"
+              className="btn w-full bg-gradient-to-r hover:bg-gradient-to-l from-[#2B33D2] to-[#7D1FC8] rounded-[10px] text-[23px] text-white font-[400] p-[8px] disabled:from-[#0F0C36] disabled:to-[#0F0C36] border-none outline-none"
               disabled={loggingIn}
             >
               {loggingIn ? <Loader /> : "Login"}
