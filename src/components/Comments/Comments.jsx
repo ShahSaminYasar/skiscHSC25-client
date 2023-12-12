@@ -65,7 +65,7 @@ const Comments = ({ type, id, comments, refetch }) => {
         />
         <button
           type="submit"
-          className="btn btn-sm bg-[#02062D]"
+          className="btn btn-sm bg-[#02062D] text-white"
           disabled={adding}
         >
           {adding ? "Adding..." : "Add comment"}

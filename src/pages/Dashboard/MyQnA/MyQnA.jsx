@@ -78,7 +78,7 @@ const MyQnA = () => {
   };
 
   return (
-    <section className="w-full">
+    <section className="w-full bg-[#010313]">
       <Helmet>
         <title>My QnA | SKISC HSC 2025</title>
       </Helmet>

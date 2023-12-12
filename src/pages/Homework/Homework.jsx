@@ -132,7 +132,7 @@ const Homework = () => {
   };
 
   return (
-    <section className="section">
+    <section className="section bg-[#010313]">
       <Helmet>
         <title>{homework?.subject || ""} Homework | SKISC HSC 2025</title>
       </Helmet>
@@ -154,13 +154,13 @@ const Homework = () => {
         <DetailsPageTitle type={"homework"}>
           {homework?.subject}
         </DetailsPageTitle>
-        <span className="block text-[25px] font-[300] text-white text-opacity-90">
+        <span className="block text-[20px] sm:text-[25px] font-[300] text-white text-opacity-90">
           Chapter {homework?.chapter}
         </span>
-        <span className="block text-[23px] font-[300] text-white text-opacity-90">
+        <span className="block text-[19px] sm:text-[23px] font-[300] text-white text-opacity-90">
           Topic: {homework?.topic}
         </span>
-        <p className="block text-[18px] my-4 font-[300] text-white text-opacity-[65%]">
+        <p className="block text-[16px] sm:text-[18px] my-4 font-[300] text-white text-opacity-[65%] text-justify">
           {homework?.description || "No description available."}
         </p>
         <span className="block text-[16px] font-[300] text-white text-opacity-80">

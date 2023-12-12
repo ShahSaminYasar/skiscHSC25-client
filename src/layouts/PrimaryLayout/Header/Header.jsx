@@ -137,10 +137,10 @@ const Header = () => {
       </header>
 
       {/* Medium Screen */}
-      <header className="h-[70px] w-full flex justify-between items-center bg-[#04071F] bg-opacity-70 backdrop-blur-md text-white px-3 mdd:hidden">
+      <header className="h-[70px] w-full flex justify-between items-center bg-[#04071F] bg-opacity-70 backdrop-blur-md text-white px-3 mdd:hidden fixed top-0 left-0 z-[998]">
         {/* Logo */}
         <Link to="/">
-          <h1 className="text-[30px] font-[300] text-white">SKISC HSC25</h1>
+          <h1 className="text-[30px] font-[400] text-white">SKISC HSC25</h1>
         </Link>
         <NotificationsDropdown />
       </header>
@@ -220,7 +220,7 @@ const Header = () => {
             Assignments
           </NavLink>
           <button
-            className="w-[40px] h-[40px] rounded-full flex flex-col items-center justify-center text-[24px] -translate-y-[15px]"
+            className="w-[40px] h-[40px] rounded-full flex flex-col items-center justify-center text-[24px] -translate-y-[15px]text-white text-opacity-90"
             style={{
               background: "linear-gradient(290deg, #2E32D2, #7520C9)",
             }}
@@ -273,12 +273,16 @@ const Header = () => {
             Blog
           </NavLink>
           <div className="dropdown dropdown-top dropdown-end">
-            <div tabIndex={0} role="button" className="text-[16px]">
+            <div
+              tabIndex={0}
+              role="button"
+              className="text-[16px] text-white text-opacity-90"
+            >
               <FaSquareCaretUp />
             </div>
             <ul
               tabIndex={0}
-              className="dropdown-content z-[1] mb-2 p-2 shadow rounded-[30px] border border-[#2A34D2] flex flex-col gap-2 items-start text-[18px] translate-x-[14px]"
+              className="dropdown-content z-[1] mb-2 p-2 shadow rounded-[30px] border text-white text-opacity-90 border-[#2A34D2] flex flex-col gap-2 items-start text-[18px] translate-x-[14px]"
               style={{
                 background: "linear-gradient(180deg, #070936 0%, #16002F 100%)",
               }}
@@ -339,16 +343,17 @@ const Header = () => {
         <FaPlus />
       </button>
 
+      {/* Add options modal */}
       <dialog
         id="post_modal"
-        className="modal bg-gradient-to-br from-[#1c227a93] to-[#5d26cc2a] bg-opacity-50 bg-blur-sm"
+        className="modal bg-gradient-to-br from-[#1c227a93] to-[#5d26cc2a] bg-opacity-50 backdrop-blur-sm"
       >
-        <div className="modal-box post_modal">
+        <div className="modal-box post_modal bg-[#010313]">
           <div className="w-full">
             <label className="block text-[20px] text-white text-opacity-90 mb-2">
               What do you want to post today?
             </label>
-            <div className="text-white text-[18px] font-[300] text-opacity-90 flex flex-col gap-2 w-full">
+            <div className="text-white text-[16px] sm:text-[18px] font-[300] text-opacity-90 flex flex-col gap-2 w-full">
               <NavLink
                 state={location}
                 to={`/add-post`}

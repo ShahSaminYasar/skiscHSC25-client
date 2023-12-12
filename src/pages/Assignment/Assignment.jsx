@@ -133,7 +133,7 @@ const Assignment = () => {
   };
 
   return (
-    <section className="section">
+    <section className="section bg-[#010313]">
       <Helmet>
         <title>{assignment?.subject || ""} Assignment | SKISC HSC 2025</title>
       </Helmet>
@@ -155,13 +155,13 @@ const Assignment = () => {
         <DetailsPageTitle type={"assignment"}>
           {assignment?.subject}
         </DetailsPageTitle>
-        <span className="block text-[25px] font-[300] text-white text-opacity-90">
+        <span className="block text-[20px] sm:text-[25px] font-[300] text-white text-opacity-90">
           Chapter {assignment?.chapter}
         </span>
-        <span className="block text-[23px] font-[300] text-white text-opacity-90">
+        <span className="block text-[19px] sm:text-[23px] font-[300] text-white text-opacity-90">
           Topic: {assignment?.topic}
         </span>
-        <p className="block text-[18px] my-4 font-[300] text-white text-opacity-[65%]">
+        <p className="block text-[16px] sm:text-[18px] text-justify my-4 font-[300] text-white text-opacity-[65%]">
           {assignment?.description || "No description available."}
         </p>
         <span className="block text-[16px] font-[300] text-white text-opacity-80">
@@ -189,7 +189,7 @@ const Assignment = () => {
           comments={assignment?.comments}
           id={assignment?._id}
           refetch={assignmentRefetch}
-          type={'assignment'}
+          type={"assignment"}
         />
       </Container>
 

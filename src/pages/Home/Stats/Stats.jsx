@@ -90,7 +90,7 @@ const Stats = () => {
                       "An error occured, please refresh the page."}
                   </NoDataText>
                 ) : (
-                  <span className="text-[18px] sm:text-[22px] font-[400] flex flex-row items-center gap-2">
+                  <span className="text-[18px] sm:text-[22px] font-[400] flex flex-row items-center gap-2 text-white text-opacity-90">
                     <span
                       className={`openStatusAnimation block w-[10px] aspect-square rounded-full ${
                         collegeOpen ? "bg-[#1BD011]" : "bg-[#d01131]"

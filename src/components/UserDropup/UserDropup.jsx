@@ -38,7 +38,7 @@ const UserDropup = () => {
         <li className="w-full py-1 px-3 bg-gradient-to-r from-[#171a4d] to-[#182058] rounded-md">
           <NavLink
             to="/dashboard"
-            className={`w-full flex flex-row gap-2 items-center`}
+            className={`w-full flex flex-row gap-2 items-center text-white text-opacity-90`}
           >
             <FaUser className={`mt-[-3px] text-[15px]`} /> Dashboard
           </NavLink>

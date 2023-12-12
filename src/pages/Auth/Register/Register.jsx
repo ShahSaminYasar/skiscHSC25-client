@@ -225,7 +225,7 @@ const Register = () => {
               <input
                 type="file"
                 accept="image/*"
-                className="transition-none text-white"
+                className="text-white w-full"
                 {...register("dp")}
               />
             </div>

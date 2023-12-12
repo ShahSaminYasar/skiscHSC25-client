@@ -14,7 +14,7 @@ import { Helmet } from "react-helmet";
 const AddAssignment = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [])
+  }, []);
 
   const axiosSecure = useAxiosSecure();
   const toast = useToast;
@@ -97,7 +97,9 @@ const AddAssignment = () => {
     }
 
     try {
-      const response = await axiosSecure.post("/assignments", { assignment: data });
+      const response = await axiosSecure.post("/assignments", {
+        assignment: data,
+      });
       const result = response?.data;
       if (result?.message === "success") {
         toast("Assignment added", "success");
@@ -116,7 +118,7 @@ const AddAssignment = () => {
   };
 
   return (
-    <section className="pt-[30px] pb-[60px] px-3">
+    <section className="pt-[30px] pb-[60px] px-3 bg-[#010313]">
       <Helmet>
         <title>Add Assignment | SKISC HSC 2025</title>
       </Helmet>

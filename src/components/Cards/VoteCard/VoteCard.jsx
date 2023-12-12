@@ -144,8 +144,8 @@ const VoteCard = ({ vote, refetch }) => {
         {by?.isLoading ? (
           <Loader />
         ) : (
-          <div className="flex flex-row items-center gap-1 w-full text-[18px] text-[#0084D1] text-opacity-90">
-            <div className="mask mask-squircle w-[35px] h-[35px]">
+          <div className="flex flex-row items-center gap-2 w-full text-[18px] text-[#0084D1] text-opacity-90">
+            <div className="mask mask-squircle w-[28px] h-[28px]">
               <img
                 src={
                   by?.[0]?.dp ||

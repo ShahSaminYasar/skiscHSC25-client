@@ -36,13 +36,13 @@ const DashboardLayout = () => {
               {/* Page content here */}
               <Outlet />
             </div>
-            <div className="drawer-side border-r-2 border-r-[#241a7c]">
+            <div className="drawer-side border-r-2 border-r-[#241a7c] z-[998]">
               <label
                 htmlFor="dashboard-sidebar"
                 aria-label="close sidebar"
                 className="drawer-overlay"
               ></label>
-              <div className="p-4 w-[220px] xs:w-[270px] sm:w-[300px]  min-h-full bg-[#04071F] text-white text-[20px] font-[400] flex flex-col gap-[5px]">
+              <div className="p-4 w-[220px] xs:w-[270px] sm:w-[300px]  min-h-full bg-[#04071F] text-white text-[20px] font-[400] flex flex-col gap-[5px] pb-14">
                 {/* Sidebar content here */}
                 <ProfileCard className="mb-3" />
                 {/* Navlinks */}

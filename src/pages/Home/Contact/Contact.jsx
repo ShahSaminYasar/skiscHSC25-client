@@ -93,7 +93,7 @@ const Contact = () => {
             >
               <select
                 name="type"
-                className="bg-[#070B2A] rounded-[12px] p-4 block w-full"
+                className="bg-[#070B2A] rounded-[12px] p-4 block w-full text-white text-opacity-90"
               >
                 <option value="support">Help & Support</option>
                 <option value="request-feature">Request a feature</option>
@@ -114,7 +114,7 @@ const Contact = () => {
               <textarea
                 name="message"
                 placeholder="Message"
-                className="bg-[#070B2A] rounded-[12px] p-4 block w-full resize-y min-h-[200px] outline-none"
+                className="bg-[#070B2A] rounded-[12px] p-4 block w-full resize-y min-h-[200px] outline-none text-white text-opacity-90"
               ></textarea>
             </div>
             <button

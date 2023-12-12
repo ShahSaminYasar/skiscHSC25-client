@@ -45,7 +45,7 @@ const Note = () => {
   }
 
   return (
-    <section className="section">
+    <section className="section bg-[#010313]">
       <Helmet>
         <title>{note?.subject || ""} Note | SKISC HSC 2025</title>
       </Helmet>
@@ -84,13 +84,13 @@ const Note = () => {
             </span>
           </div>
         </div>
-        <span className="block text-[25px] font-[300] text-white text-opacity-90">
+        <span className="block text-[20px] sm:text-[25px] font-[300] text-white text-opacity-90">
           Chapter {note?.chapter}
         </span>
-        <span className="block text-[23px] font-[300] text-white text-opacity-90">
+        <span className="block text-[19px] sm:text-[23px] font-[300] text-white text-opacity-90">
           Topic: {note?.topic}
         </span>
-        <p className="block text-[18px] my-4 font-[300] text-white text-opacity-[65%]">
+        <p className="block text-[16px] sm:text-[18px] text-justify my-4 font-[300] text-white text-opacity-[65%]">
           {note?.description || "No description available."}
         </p>
         <span className="block text-[16px] font-[300] text-white text-opacity-80">

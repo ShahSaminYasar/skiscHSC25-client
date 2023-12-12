@@ -39,7 +39,7 @@ const QnA = () => {
   const { isFirst, isLast } = slideState;
 
   return (
-    <section className="section">
+    <section className="section bg-[#0A0417]">
       {qnasState?.isLoading ? (
         <LoaderDiv />
       ) : qnasState?.error ? (

@@ -13,7 +13,7 @@ const AdminMessages = () => {
   messages = messages?.data;
 
   return (
-    <section className="w-full">
+    <section className="w-full bg-[#010313]">
       <Helmet>
         <title>Messages | SKISC HSC 2025</title>
       </Helmet>

@@ -6,7 +6,7 @@ import Waiting from "./Waiting";
 
 const Users = () => {
   return (
-    <section className="w-full">
+    <section className="w-full bg-[#010313]">
       <Helmet>
         <title>Users | SKISC HSC 2025</title>
       </Helmet>

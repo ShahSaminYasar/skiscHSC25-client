@@ -60,9 +60,13 @@ const Homeworks = () => {
                 <FaChevronLeft />
               </button>
               <Swiper
-                slidesPerView={homeworks?.length > 1 ? 2 : 1}
+                slidesPerView={1}
                 spaceBetween={10}
                 breakpoints={{
+                  600: {
+                    slidesPerView: homeworks?.length > 1 ? 2 : 1,
+                    spaceBetween: 10,
+                  },
                   710: {
                     slidesPerView:
                       homeworks?.length > 2 ? 3 : homeworks?.length > 1 ? 2 : 1,

@@ -52,7 +52,7 @@ const FileCard = ({ file, parentId, refetch }) => {
       //   target="_blank"
     >
       <div
-        className={`bg-[#0E1153] p-3 flex w-full rounded-md flex-row gap-2 items-center justify-between text-[18px]`}
+        className={`bg-[#0E1153] p-3 flex w-full rounded-md flex-row gap-2 items-center justify-between text-[18px] text-white text-opacity-80`}
       >
         <div>
           {file?.name?.length > 36

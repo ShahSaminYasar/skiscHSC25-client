@@ -75,7 +75,7 @@ const Blog = () => {
   };
 
   return (
-    <section className="section">
+    <section className="section bg-[#010313]">
       <Helmet>
         <title>{post?.title || "Blog"} | SKISC HSC 2025</title>
       </Helmet>

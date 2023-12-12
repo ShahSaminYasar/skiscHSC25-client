@@ -77,7 +77,7 @@ const Posts = () => {
   };
 
   return (
-    <section className="w-full">
+    <section className="w-full bg-[#010313]">
       <Helmet>
         <title>Manage Posts | SKISC HSC 2025</title>
       </Helmet>

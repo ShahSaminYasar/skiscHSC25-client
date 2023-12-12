@@ -77,7 +77,7 @@ const MyPosts = () => {
   };
 
   return (
-    <section className="w-full">
+    <section className="w-full bg-[#010313]">
       <Helmet>
         <title>My Posts | SKISC HSC 2025</title>
       </Helmet>

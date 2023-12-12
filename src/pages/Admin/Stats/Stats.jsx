@@ -156,9 +156,10 @@ const Stats = () => {
       <Helmet>
         <title>Set Updates | SKISC HSC 2025</title>
       </Helmet>
-      <section className="flex flex-col gap-5">
-        <div className="p-5 bg-[#020526] rounded-md border-2 border-slate-800">
+      <section className="flex flex-col gap-5 bg-[#010313]">
+        <div className="p-5 bg-[#020526] rounded-md border-2 border-slate-800 w-full">
           <Title classNmae="flex-1">College Open/Close Date (Special)</Title>
+          {/* College open/close */}
           <div className="flex flex-row flex-wrap gap-6">
             <form onSubmit={handleAddOpenDate}>
               <label
@@ -212,7 +213,7 @@ const Stats = () => {
             </form>
           </div>
         </div>
-        <div className="flex flex-col md:flex-row gap-7">
+        <div className="flex flex-col md:flex-row gap-7 w-full overflow-auto">
           <form
             onSubmit={handleAddTest}
             className="p-5 bg-[#020526] rounded-md border-2 border-slate-800 flex flex-col gap-2"
@@ -299,8 +300,8 @@ const Stats = () => {
           ) : testsState?.error ? (
             <NoDataText>An error occured while fetching the data.</NoDataText>
           ) : tests?.length > 0 ? (
-            <div className="overflow-x-auto">
-              <table className="table w-full">
+            <div className="overflow-x-auto w-full max-w-[320px] xss:max-w-[390px] sm:max-w-[500px] md:max-w-[700px]">
+              <table className="table">
                 {/* head */}
                 <thead
                   style={{

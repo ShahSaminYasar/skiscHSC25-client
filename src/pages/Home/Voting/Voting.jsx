@@ -30,7 +30,7 @@ const Voting = () => {
 
   return (
     <>
-      <section className="section">
+      <section className="section bg-[#01020E]">
         <Container>
           <Title>Voting Zone</Title>
           <div className="grid grid-cols-1 mdd:grid-cols-2 gap-5">

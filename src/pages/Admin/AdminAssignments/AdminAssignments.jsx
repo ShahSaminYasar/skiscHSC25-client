@@ -63,7 +63,7 @@ const AdminAssignments = () => {
   };
 
   return (
-    <section className="w-full">
+    <section className="w-full bg-[#010313]">
       <Helmet>
         <title>Assignments | SKISC HSC 2025</title>
       </Helmet>
