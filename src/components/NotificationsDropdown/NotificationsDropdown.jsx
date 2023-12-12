@@ -40,7 +40,14 @@ const NotificationsDropdown = () => {
   return (
     <div className="dropdown dropdown-end">
       <div tabIndex={0} role="button" className="text-[20px]">
-        <FaBell />
+        <div className="relative">
+          <span
+            className={`${
+              notifications?.length > 0 ? "inline-block" : "hidden"
+            } w-[10px] aspect-square rounded-full bg-rose-600 absolute -top-[3px] -right-[3px]`}
+          ></span>
+          <FaBell />
+        </div>
       </div>
       <ul
         tabIndex={0}

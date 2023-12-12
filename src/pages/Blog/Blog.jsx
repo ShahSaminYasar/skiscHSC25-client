@@ -123,7 +123,7 @@ const Blog = () => {
             </div>
           </div>
         )}
-        <div className="text-[18px] mt-5 text-white text-opacity-90">
+        <div className="text-[18px] mt-5 text-white text-opacity-90 text-justify">
           {parse(post?.content)}
         </div>
         <div className="text-[#F5154B] flex items-center gap-2 text-[18px] mt-7">

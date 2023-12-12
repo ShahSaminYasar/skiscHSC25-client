@@ -31,7 +31,7 @@ const GoogleButton = () => {
       onClick={handleGoogleLogin}
       type="button"
       disabled={loggingIn}
-      className="btn w-full flex items-center justify-center gap-2 bg-white rounded-[10px] text-[23px] text-[#1976D2] font-[500] p-[8px] hover:bg-[#4319ff] hover:text-white disabled:bg-[#1f1841] disabled:text-slate-400 border-none outline-none"
+      className="btn w-full flex items-center justify-center gap-2 bg-white rounded-[10px] text-[18px] sm:text-[23px] text-[#1976D2] font-[500] p-[8px] hover:bg-[#4319ff] hover:text-white disabled:bg-[#1f1841] disabled:text-slate-400 border-none outline-none"
     >
       <img
         src={GoogleIcon}

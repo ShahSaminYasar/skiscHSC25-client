@@ -137,7 +137,7 @@ const Header = () => {
       </header>
 
       {/* Medium Screen */}
-      <header className="h-[70px] w-full flex justify-between items-center bg-[#04071F] bg-opacity-70 backdrop-blur-md text-white px-3 mdd:hidden fixed top-0 left-0 z-[998]">
+      <header className="h-[60px] w-full flex justify-between items-center bg-[#04071F] bg-opacity-70 backdrop-blur-md text-white px-3 mdd:hidden fixed top-0 left-0 z-[998]">
         {/* Logo */}
         <Link to="/">
           <h1 className="text-[30px] font-[400] text-white">SKISC HSC25</h1>
