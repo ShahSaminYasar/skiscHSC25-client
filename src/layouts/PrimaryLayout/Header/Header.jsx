@@ -341,7 +341,7 @@ const Header = () => {
 
       <dialog
         id="post_modal"
-        className="modal bg-gradient-to-br from-[#1c227a93] to-[#5d26cc2a] bg-opacity-50" // TODO: Blur
+        className="modal bg-gradient-to-br from-[#1c227a93] to-[#5d26cc2a] bg-opacity-50 bg-blur-sm"
       >
         <div className="modal-box post_modal">
           <div className="w-full">
