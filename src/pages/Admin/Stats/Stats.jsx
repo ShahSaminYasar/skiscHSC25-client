@@ -6,7 +6,7 @@ import useAxiosSecure from "../../../hooks/Axios/useAxiosSecure";
 import { useQueryClient } from "@tanstack/react-query";
 import Loader from "../../../components/Loaders/Loader";
 import useTests from "../../../hooks/GET/useTests";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import LoaderDiv from "../../../components/Loaders/LoaderDiv";
 import NoDataText from "../../../components/NoData/NoDataText";
@@ -98,7 +98,7 @@ const Stats = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axiosSecure
-          .delete(`/delete?id=${id}`)
+          .delete(`/tests?id=${id}`)
           .then((res) => {
             if (res?.data?.message === "success") {
               queryClient.invalidateQueries({ id: ["getTests"] });
@@ -292,7 +292,6 @@ const Stats = () => {
                 placeholder="Subject"
                 className={"border-[#3C3F58]"}
                 disabled={addingTest}
-                required
               />
             </div>
             <div>
@@ -309,7 +308,6 @@ const Stats = () => {
                 placeholder="Chapter"
                 className={"border-[#3C3F58]"}
                 disabled={addingTest}
-                required
               />
             </div>
             <div>
@@ -383,10 +381,10 @@ const Stats = () => {
                     >
                       <td className="min-w-[200px]">
                         <div className="text-[16px] opacity-80 mb-1">
-                          Subject: {test?.subject}
+                          Subject: {test?.subject || "NULL"}
                         </div>
                         <div className="text-[16px] opacity-80">
-                          Chapter: {test?.chapter}
+                          Chapter: {test?.chapter || "NULL"}
                         </div>
                         <div className="text-[16px] opacity-80 mt-1">
                           Topic: {test?.topic || "Address not provided"}
@@ -397,7 +395,7 @@ const Stats = () => {
                       </td>
                       <td>
                         <div className="grid grid-cols-1 gap-1 items-center justify-center w-full max-w-[90px] mx-auto">
-                          <Link
+                          {/* <Link
                             to={`/test/${test?._id}`}
                             className="btn btn-sm font-[400]"
                           >
@@ -408,7 +406,7 @@ const Stats = () => {
                             className="btn btn-sm font-[400]"
                           >
                             Edit
-                          </Link>
+                          </Link> */}
                           <button
                             className="btn btn-sm bg-[#531019] hover:bg-[#ff2f2f] text-[#ce3a3a] hover:text-[#dccaff] text-opacity-90 font-[500]"
                             onClick={() => handleDeleteTest(test?._id)}
