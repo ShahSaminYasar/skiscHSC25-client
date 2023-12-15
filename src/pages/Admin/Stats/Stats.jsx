@@ -11,15 +11,21 @@ import Swal from "sweetalert2";
 import LoaderDiv from "../../../components/Loaders/LoaderDiv";
 import NoDataText from "../../../components/NoData/NoDataText";
 import { Helmet } from "react-helmet";
+import { FaCalendarDays } from "react-icons/fa6";
+import useCollegeState from "../../../hooks/GET/useCollegeState";
+import TitleSM from "../../../components/Title/TitleSM";
+import toast from "react-hot-toast";
 
 const Stats = () => {
-  const toast = useToast;
+  const customToast = useToast;
   const axiosSecure = useAxiosSecure();
   const queryClient = useQueryClient();
 
   let tests = useTests();
   const testsState = tests;
   tests = tests?.data;
+
+  let collegeDates = useCollegeState();
 
   const inputStyle = {
     borderRadius: "8px",
@@ -64,14 +70,17 @@ const Stats = () => {
         form.chapter.value = "";
         form.topic.value = "";
         form.date.value = "";
-        return toast("Test added", "success");
+        return customToast("Test added", "success");
       } else {
         setAddingTest(false);
-        return toast(response?.data?.message || "Failed to post test", "info");
+        return customToast(
+          response?.data?.message || "Failed to post test",
+          "info"
+        );
       }
     } catch (error) {
       setAddingTest(false);
-      return toast(error?.message || "An unknown error occured", "error");
+      return customToast(error?.message || "An unknown error occured", "error");
     }
   };
 
@@ -93,7 +102,7 @@ const Stats = () => {
           .then((res) => {
             if (res?.data?.message === "success") {
               queryClient.invalidateQueries({ id: ["getTests"] });
-              return toast("Deleted", "success");
+              return customToast("Deleted", "success");
             } else {
               Swal.fire({
                 title: "Not sure",
@@ -103,7 +112,7 @@ const Stats = () => {
             }
           })
           .catch((error) => {
-            return toast(error?.message || "An error occured", "error");
+            return customToast(error?.message || "An error occured", "error");
           });
       }
     });
@@ -119,14 +128,18 @@ const Stats = () => {
       });
       if (response?.data?.message === "success") {
         setAddingClosedDate(false);
-        return toast("Date added to closed dates", "success");
+        customToast("Date added to closed dates", "success");
+        return queryClient.invalidateQueries({ id: ["getCollegeState"] });
       } else {
         setAddingClosedDate(false);
-        return toast(response?.data?.message || "Failed to add date", "info");
+        return customToast(
+          response?.data?.message || "Failed to add date",
+          "info"
+        );
       }
     } catch (error) {
       setAddingClosedDate(false);
-      return toast(error?.message || "An error occured", "error");
+      return customToast(error?.message || "An error occured", "error");
     }
   };
 
@@ -140,14 +153,52 @@ const Stats = () => {
       });
       if (response?.data?.message === "success") {
         setAddingOpenDate(false);
-        return toast("Date added to open dates", "success");
+        customToast("Date added to open dates", "success");
+        return queryClient.invalidateQueries({ id: ["getCollegeState"] });
       } else {
         setAddingOpenDate(false);
-        return toast(response?.data?.message || "Failed to add date", "info");
+        return customToast(
+          response?.data?.message || "Failed to add date",
+          "info"
+        );
       }
     } catch (error) {
       setAddingOpenDate(false);
-      return toast(error?.message || "An error occured", "error");
+      return customToast(error?.message || "An error occured", "error");
+    }
+  };
+
+  const handleRemoveDate = async (date, type) => {
+    const removingToast = toast.loading("Removing date...", {
+      style: {
+        background: "#010313",
+        border: "2px solid #0CEFE3",
+        color: "#0CEFE3",
+        fontWeight: 500,
+        fontSize: "16px",
+      },
+    });
+    const response = await axiosSecure.delete(
+      `/college-state?type=${type}&date=${date}`
+    );
+    if (response?.data?.message === "success") {
+      toast("removed", {
+        id: removingToast,
+        style: {
+          background: "#010313",
+          border: "2px solid #0CEFE3",
+          color: "#0CEFE3",
+          fontWeight: 500,
+          fontSize: "16px",
+        },
+      });
+      return queryClient.invalidateQueries({ id: ["getCollegeState"] });
+    } else {
+      toast.dismiss();
+      return customToast(
+        response?.data?.message || "Failed. Please try again",
+        "error"
+      );
     }
   };
 
@@ -160,7 +211,7 @@ const Stats = () => {
         <div className="p-5 bg-[#020526] rounded-md border-2 border-slate-800 w-full">
           <Title classNmae="flex-1">College Open/Close Date (Special)</Title>
           {/* College open/close */}
-          <div className="flex flex-row flex-wrap gap-6">
+          <div className="flex flex-row flex-wrap gap-6 justify-between items-center">
             <form onSubmit={handleAddOpenDate}>
               <label
                 htmlFor="subject"
@@ -211,6 +262,14 @@ const Stats = () => {
                 </button>
               </div>
             </form>
+            <button
+              onClick={() =>
+                document.getElementById(`college_dates_modal`).showModal()
+              }
+              className="text-white text-[20px]"
+            >
+              <FaCalendarDays />
+            </button>
           </div>
         </div>
         <div className="flex flex-col md:flex-row gap-7 w-full overflow-auto">
@@ -368,6 +427,58 @@ const Stats = () => {
           )}
         </div>
       </section>
+
+      <dialog
+        id={`college_dates_modal`}
+        className="modal bg-gradient-to-br from-[#1c227a93] to-[#5d26cc2a] bg-opacity-50"
+      >
+        <div className="modal-box bg-[#010313]">
+          <form method="dialog">
+            {/* if there is a button in form, it will close the modal */}
+            <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
+              ✕
+            </button>
+          </form>
+          <div className="w-full">
+            <div>
+              <TitleSM className="mt-[0px]">Open</TitleSM>
+              <div className="flex flex-col gap-1">
+                {collegeDates?.open?.map((date) => (
+                  <div
+                    key={date}
+                    className="text-slate-300 text-[17px] flex flex-row justify-between items-center"
+                  >
+                    {date}
+                    <button
+                      className="text-red-500"
+                      onClick={() => handleRemoveDate(date, "open")}
+                    >
+                      Remove
+                    </button>
+                  </div>
+                ))}
+              </div>
+              <TitleSM className="mt-[0px]">Closed</TitleSM>
+              <div className="flex flex-col gap-1">
+                {collegeDates?.close?.map((date) => (
+                  <div
+                    key={date}
+                    className="text-slate-300 text-[17px] flex flex-row justify-between items-center"
+                  >
+                    {date}
+                    <button
+                      className="text-red-500"
+                      onClick={() => handleRemoveDate(date, "close")}
+                    >
+                      Remove
+                    </button>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </dialog>
     </>
   );
 };

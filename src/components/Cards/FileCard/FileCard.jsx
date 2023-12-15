@@ -71,6 +71,7 @@ const FileCard = ({ file, parentId, refetch }) => {
                     "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png"
                   }
                   alt="User Profile Picture"
+                  className="w-full aspect-square object-cover"
                 />
               </div>
               <span className="block text-[15px] text-white text-opacity-90">

@@ -19,6 +19,7 @@ const Profile = () => {
   const [editMode, setEditMode] = useState(false);
   const [profileImg, setProfileImg] = useState(user?.dp);
   const [updating, setUpdating] = useState(false);
+  const [clearDP, setClearDP] = useState(false);
 
   const inputStyle = {
     borderRadius: "8px",
@@ -31,6 +32,11 @@ const Profile = () => {
     padding: "8px 12px",
     outline: "none",
     display: "block",
+  };
+
+  const handleRemoveDP = () => {
+    setProfileImg("");
+    setClearDP(true);
   };
 
   const handleImageInput = (e) => {
@@ -56,26 +62,30 @@ const Profile = () => {
     const address = form.address.value;
 
     try {
-      let dp_url = user?.dp;
-      if (dp[0]) {
-        const imageFile = dp[0];
-        const imgbb = await axios.post(
-          `https://api.imgbb.com/1/upload?key=${
-            import.meta.env.VITE_IMGBB_APIKEY
-          }`,
-          { image: imageFile },
-          {
-            headers: {
-              "content-type": "multipart/form-data",
-            },
+      let dp_url = profileImg;
+      if (clearDP === true) {
+        dp_url = "";
+      } else {
+        if (dp[0]) {
+          const imageFile = dp[0];
+          const imgbb = await axios.post(
+            `https://api.imgbb.com/1/upload?key=${
+              import.meta.env.VITE_IMGBB_APIKEY
+            }`,
+            { image: imageFile },
+            {
+              headers: {
+                "content-type": "multipart/form-data",
+              },
+            }
+          );
+          // console.log("IMGBB response => ", imgbb);
+          if (imgbb?.data?.success === true) {
+            dp_url = imgbb?.data?.data?.display_url;
+          } else {
+            setUpdating(false);
+            return toast("Couldn't upload image, please try again.", "error");
           }
-        );
-        // console.log("IMGBB response => ", imgbb);
-        if (imgbb?.data?.success === true) {
-          dp_url = imgbb?.data?.data?.display_url;
-        } else {
-          setUpdating(false);
-          return toast("Couldn't upload image, please try again.", "error");
         }
       }
 
@@ -88,6 +98,8 @@ const Profile = () => {
         id,
         address,
       };
+
+      setClearDP(false);
 
       updateUser(name, dp_url)
         .then((res) => {
@@ -148,6 +160,7 @@ const Profile = () => {
                   "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png"
                 }
                 alt="User Profile Picture"
+                className="w-full aspect-square object-cover"
               />
             </div>
 
@@ -166,6 +179,16 @@ const Profile = () => {
                 name="dp"
                 onInput={(e) => handleImageInput(e)}
               />
+            </div>
+
+            <div className={editMode && user?.dp !== "" ? "block" : "hidden"}>
+              <button
+                type="button"
+                onClick={handleRemoveDP}
+                className="btn btn-sm mt-7 block hover:bg-red-700 font-[300] mx-auto bg-red-800 text-white text-opacity-70 text-center border-none outline-none w-fit text-[15px]"
+              >
+                Remove picture
+              </button>
             </div>
           </div>
 

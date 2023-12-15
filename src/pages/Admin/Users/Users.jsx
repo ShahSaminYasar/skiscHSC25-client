@@ -10,8 +10,9 @@ const Users = () => {
       <Helmet>
         <title>Users | SKISC HSC 2025</title>
       </Helmet>
-      <Admins />
       <Waiting />
+      <div className="my-[25px]"></div>
+      <Admins />
       <div className="my-[25px]"></div>
       <Title className="mb-[5px]">Users</Title>
       <Students />

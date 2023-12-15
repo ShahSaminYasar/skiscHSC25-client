@@ -2,10 +2,13 @@ import GoogleIcon from "../../assets/GoogleIcon.png";
 import useAuth from "../../hooks/Auth/useAuth";
 import useToast from "../../hooks/Toaster/useToast";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const GoogleButton = () => {
   const { googleLogin } = useAuth();
   const toast = useToast;
+
+  const navigate = useNavigate();
 
   const [loggingIn, setLoggingIn] = useState(false);
 
@@ -13,13 +16,13 @@ const GoogleButton = () => {
     setLoggingIn(true);
     googleLogin()
       .then((res) => {
+        setLoggingIn(false);
         if (res?.user) {
-          return toast(`Logged in as ${res?.user?.displayName}`, "success");
-          // return navigate("/");
+          toast(`Logged in as ${res?.user?.displayName}`, "success");
+          return navigate("/");
         } else {
           toast("Unknown error occured", "error");
         }
-        setLoggingIn(false);
       })
       .catch((error) => {
         toast(error?.message || "Error");

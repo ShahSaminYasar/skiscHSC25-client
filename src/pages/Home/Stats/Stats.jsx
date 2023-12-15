@@ -13,7 +13,7 @@ const Stats = () => {
 
   const [collegeOpen, setCollegeOpen] = useState(true);
   const [today, setToday] = useState(true);
-  console.log("Hour: ", moment().hour());
+  // console.log("Hour: ", moment().hour());
 
   useEffect(() => {
     if (collegeState?.isLoading || collegeState?.error) return;

@@ -4,11 +4,13 @@ import useAuth from "../../../hooks/Auth/useAuth";
 import Loader from "../../../components/Loaders/Loader";
 import useToast from "../../../hooks/Toaster/useToast";
 import { Helmet } from "react-helmet";
+import { useNavigate } from "react-router-dom";
 
 const Credentials = () => {
   const axiosPublic = useAxiosPublic();
   const { user, setUser } = useAuth();
   const toast = useToast;
+  const navigate = useNavigate();
 
   const [handle, setHandle] = useState("");
   const [username, setUsername] = useState("");
@@ -38,7 +40,8 @@ const Credentials = () => {
         setSending(false);
         if (res?.data?.message === "success") {
           setUser(res?.data?.result);
-          return toast("Thank you. Please wait for verification", "success");
+          toast("Thank you. Please wait for verification", "success");
+          return navigate("/");
         } else {
           return toast(res?.data?.message || "An error occured", "error");
         }
