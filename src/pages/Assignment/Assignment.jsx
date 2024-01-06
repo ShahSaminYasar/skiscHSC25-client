@@ -179,6 +179,7 @@ const Assignment = () => {
               parentId={id}
               refetch={assignmentState?.refetch}
               key={file?.id}
+              type={"assignment"}
             />
           ))
         ) : (

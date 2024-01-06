@@ -86,7 +86,7 @@ const Homework = () => {
           },
         });
         const result = await response.data.result;
-        console.log(result);
+        // console.log(result);
         result.map((upload) =>
           pdfFiles.push({
             name: upload?.name,
@@ -178,6 +178,7 @@ const Homework = () => {
               parentId={id}
               refetch={homeworkState?.refetch}
               key={file?.id}
+              type={"homework"}
             />
           ))
         ) : (

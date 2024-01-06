@@ -140,7 +140,7 @@ const VoteCard = ({ vote, refetch }) => {
         background: "linear-gradient(104deg, #2A34D2 0.79%, #7D1FC8 73.82%)",
       }}
     >
-      <div className="bg-[#0D0321] text-white p-5 rounded-[15px] text-[18px] xss:text-[20px] md:text-[22px] flex flex-col gap-3">
+      <div className="bg-[#0D0321] text-white p-5 rounded-[15px] text-[18px] sm:text-[20px] flex flex-col gap-3">
         {by?.isLoading ? (
           <Loader />
         ) : (
@@ -163,7 +163,7 @@ const VoteCard = ({ vote, refetch }) => {
             </span>
           </div>
         )}
-        <p className="text-opacity-90 font-[400] text-[20px] xss:text-[21px] md:text-[23px]">
+        <p className="text-opacity-90 font-[400] text-[20px] sm:text-[22px]">
           {vote?.title}
         </p>
         {vote?.options?.map((option) => {

@@ -6,7 +6,7 @@ import useAxiosSecure from "../../../hooks/Axios/useAxiosSecure";
 import useToast from "../../../hooks/Toaster/useToast";
 import { useState } from "react";
 
-const FileCard = ({ file, parentId, refetch }) => {
+const FileCard = ({ file, parentId, refetch, type }) => {
   const postedBy = useUser(file?.by);
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
@@ -21,7 +21,7 @@ const FileCard = ({ file, parentId, refetch }) => {
     const fileId = file?.id;
     axiosSecure
       .put("/approve-submission", {
-        type: "homework",
+        type: type || "homework",
         id: parentId,
         fileId,
       })

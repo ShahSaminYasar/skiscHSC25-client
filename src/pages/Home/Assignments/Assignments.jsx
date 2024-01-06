@@ -49,6 +49,8 @@ const Assignments = () => {
           <NoDataText className="text-red-500">
             {assignmentsState?.error}
           </NoDataText>
+        ) : assignments?.length === 0 ? (
+          <NoDataText>Wohoo! No upcoming assignments.</NoDataText>
         ) : (
           <>
             <div className="px-0 flex flex-row gap-1 justify-between items-center">
