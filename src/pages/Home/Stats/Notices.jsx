@@ -25,6 +25,8 @@ const Notices = () => {
         <Loader />
       ) : testsState?.error ? (
         <NoDataText>{testsState?.error || "Failed to get data"}</NoDataText>
+      ) : tests?.length === 0 ? (
+        <NoDataText>No new notices/tests.</NoDataText>
       ) : (
         <Swiper
           direction={"vertical"}
@@ -44,11 +46,7 @@ const Notices = () => {
         >
           {tests?.map((test) => (
             <SwiperSlide key={test?._id}>
-              <div
-                // to={`/test/${test?._id}`}
-                // state={location}
-                className="text-[16px] xss:text-[18px] sm:text-[19px] text-[#00ECA5] text-opacity-80"
-              >
+              <div className="text-[15px] xss:text-[18px] sm:text-[19px] text-[#00ECA5] text-opacity-80">
                 {test?.subject ? (
                   <>
                     <span className="font-[600]">WT</span> {test?.subject} -
@@ -60,8 +58,8 @@ const Notices = () => {
                 ) : (
                   <>
                     <span className="font-[400]">{test?.topic}</span>
-                    <span className="block text-[#00ECA5] text-opacity-60 text-[14px] xss:text-[16px] sm:text-[17px]">
-                      Date: {moment(test?.date).format("DD MMM Y")}
+                    <span className="inline-block ml-2 text-[#00ECA5] text-opacity-60 text-[14px] xss:text-[16px] sm:text-[17px]">
+                      ~ {moment(test?.date).format("DD MMM Y")}
                     </span>
                   </>
                 )}

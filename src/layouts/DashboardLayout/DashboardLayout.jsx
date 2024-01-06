@@ -36,7 +36,7 @@ const DashboardLayout = () => {
               {/* Page content here */}
               <Outlet />
             </div>
-            <div className="drawer-side border-r-2 border-r-[#241a7c] z-[998]">
+            <div className="drawer-side lg:border-r-2 lg:border-r-[#241a7c] z-[998]">
               <label
                 htmlFor="dashboard-sidebar"
                 aria-label="close sidebar"

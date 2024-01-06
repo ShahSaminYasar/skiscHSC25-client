@@ -52,7 +52,7 @@ const Updates = () => {
               <Link
                 to={`/post/${post?._id}`}
                 state={location}
-                className="text-[16px] xss:text-[18px] sm:text-[19px] text-[#34BCD4] text-opacity-80"
+                className="text-[15px] xss:text-[18px] sm:text-[19px] text-[#34BCD4] text-opacity-80"
               >
                 @{post?.by} made a new post
                 <span className="block text-[#34BCD4] text-opacity-60 text-[14px] xss:text-[16px] sm:text-[17px]">

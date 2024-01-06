@@ -140,11 +140,11 @@ const VoteCard = ({ vote, refetch }) => {
         background: "linear-gradient(104deg, #2A34D2 0.79%, #7D1FC8 73.82%)",
       }}
     >
-      <div className="bg-[#0D0321] text-white p-5 rounded-[15px] test-[18px] xss:text-[20px] md:text-[22px] flex flex-col gap-3">
+      <div className="bg-[#0D0321] text-white p-5 rounded-[15px] text-[18px] xss:text-[20px] md:text-[22px] flex flex-col gap-3">
         {by?.isLoading ? (
           <Loader />
         ) : (
-          <div className="flex flex-row items-center gap-2 w-full text-[18px] text-[#0084D1] text-opacity-90">
+          <div className="flex flex-row items-center gap-2 w-full text-[15px] text-[#0084D1] text-opacity-90">
             <div className="mask mask-squircle w-[28px] h-[28px]">
               <img
                 src={
@@ -156,14 +156,16 @@ const VoteCard = ({ vote, refetch }) => {
               />
             </div>
             <span>
-              By <span className="font-[400]">{by?.[0]?.name}</span> on{" "}
-              <span className="font-[400]">
+              By <span className="font-[600]">{by?.[0]?.name}</span> on{" "}
+              <span className="font-[600]">
                 {moment(vote?.datetime).format("DD MMM Y")}
               </span>
             </span>
           </div>
         )}
-        <p className="text-opacity-90 font-[400]">{vote?.title}</p>
+        <p className="text-opacity-90 font-[400] text-[20px] xss:text-[21px] md:text-[23px]">
+          {vote?.title}
+        </p>
         {vote?.options?.map((option) => {
           let voteCount = option?.votes?.length;
           let percentage = (voteCount / totalVotes) * 100 || 0;

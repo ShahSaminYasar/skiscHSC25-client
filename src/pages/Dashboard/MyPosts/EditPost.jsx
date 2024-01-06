@@ -130,7 +130,7 @@ const EditPost = () => {
   };
 
   return (
-    <section className="pt-[30px] pb-[60px] px-3">
+    <section className="pt-[30px] pb-[60px] px-3 bg-[#010313]">
       <Helmet>
         <title>Edit post | SKISC HSC 2025</title>
       </Helmet>

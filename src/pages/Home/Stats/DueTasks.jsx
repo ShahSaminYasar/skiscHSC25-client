@@ -29,7 +29,7 @@ const DueTasks = () => {
             <NoDataText>
               {homeworksState?.error || "Failed to get data"}
             </NoDataText>
-          ) : (
+          ) : homeworks?.length > 0 ? (
             homeworks?.map((homework) => (
               <Link
                 to={`/homework/${homework?._id}`}
@@ -43,6 +43,8 @@ const DueTasks = () => {
                 </span>
               </Link>
             ))
+          ) : (
+            <NoDataText>No due homeworks!</NoDataText>
           )}
         </div>
       </div>
@@ -57,7 +59,7 @@ const DueTasks = () => {
             <NoDataText>
               {assignmentsState?.error || "Failed to get data"}
             </NoDataText>
-          ) : (
+          ) : assignments?.length > 0 ? (
             assignments?.map((assignment) => (
               <Link
                 to={`/assignment/${assignment?._id}`}
@@ -71,6 +73,8 @@ const DueTasks = () => {
                 </span>
               </Link>
             ))
+          ) : (
+            <NoDataText>No due assignments!</NoDataText>
           )}
         </div>
       </div>
